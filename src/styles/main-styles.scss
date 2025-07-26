@@ -1,0 +1,72 @@
+.stage {
+  width: 50%;
+  border: 1px solid #000;
+  border-radius: 15px;
+  margin: 0 auto;
+  background-color: #22e2f3;
+  text-align: center;
+  p {
+    color: #228f22;
+    font-size: 1.5rem;
+  }
+}
+
+.count-sum__container {
+  width: 50%;
+  margin: 20px auto;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  .count,
+  .sum {
+    width: 120px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: aqua;
+    text-align: center;
+    p {
+      font-size: 1.2rem;
+    }
+  }
+}
+
+.chairs-list {
+  width: 75%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
+  gap: 15px;
+  padding: 20px;
+  text-align: center;
+  .chair-section {
+    width: 300px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    padding: 10px;
+    button {
+      width: 60px;
+      padding: 5px;
+      border: 2px solid #ccc;
+      border-radius: 5px;
+      margin: 5px;
+      font-size: 1rem;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.selected {
+  background-color: green;
+}
+
+.temporaryReservation {
+  background-color: yellow;
+}
+
+.reserved {
+  background-color: red;
+}
