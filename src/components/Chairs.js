@@ -7,7 +7,7 @@ const Chairs = () => {
   const sections = ["B", "A", "C", "D"];
 
   if (loading) {
-    return <h3>Loading</h3>;
+    return <h3>Loading...</h3>;
   } else if (errorMessage) {
     return <h2>Error: {errorMessage}</h2>;
   } else {
