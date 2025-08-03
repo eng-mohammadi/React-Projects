@@ -1,0 +1,115 @@
+body {
+  direction: rtl;
+  background-color: #fbf9f9;
+}
+
+.navbar-menu {
+  width: 80%;
+  margin: 20px auto;
+  padding: 10px;
+  ul {
+    li {
+      list-style: none;
+      display: inline-block;
+      width: 140px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      padding: 10px;
+      box-shadow: 5px 7px 10px rgba(5, 137, 64, 0.5);
+      margin: 30px;
+      text-align: center;
+      background-color: #0e0373;
+      a {
+        text-decoration: none;
+        font-size: 1.4rem;
+        font-weight: bold;
+        color: #fff;
+        &:hover {
+          color: #6a1111;
+        }
+      }
+      &:hover {
+        background-color: invert(#345c0b);
+        cursor: pointer;
+        border: none;
+        transform: scale(1.1);
+        transition: all 0.5s ease-in;
+        box-shadow: 7px 10px 15px rgba(9, 9, 9, 0.5);
+      }
+    }
+  }
+}
+
+.main-content {
+  width: 80%;
+  margin: 20px auto;
+  border: 1px solid #4691dd;
+  border-radius: 5px;
+  .home-page {
+    width: 75%;
+    margin: 15px auto;
+    padding: 10px;
+    border: 1px solid #4691dd;
+    border-radius: 5px;
+    text-align: center;
+  }
+  .student-management {
+    padding: 10px;
+    table {
+      width: 70%;
+      margin: 20px auto;
+      text-align: center;
+      font-size: 1.2rem;
+      tr,
+      th,
+      td {
+        padding: 7px;
+        border: 1px solid #000;
+        border-radius: 5px;
+        i {
+          cursor: pointer;
+          &:hover {
+            color: red;
+          }
+        }
+      }
+    }
+    .add-student__form {
+      margin: 30px;
+      padding: 10px;
+      font-size: 1.2rem;
+      .form-group {
+        margin: 10px;
+        label {
+          display: block;
+          margin-bottom: 5px;
+        }
+        input {
+          height: 15px;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+          padding: 5px;
+          &:focus {
+            outline: none;
+            border-color: #5add46;
+          }
+        }
+        button {
+          border: 1px solid #ccc;
+          padding: 5px;
+          margin: 8px;
+          font-size: 1.4rem;
+          border-radius: 8px;
+          background-color: #41035a;
+          color: #fff;
+          &:hover {
+            cursor: pointer;
+            background-color: invert(#41035a);
+            color: #000;
+            font-weight: bolder;
+          }
+        }
+      }
+    }
+  }
+}
