@@ -53,13 +53,21 @@ body {
     border-radius: 5px;
     text-align: center;
   }
-  .student-management {
+  .student-management,
+  .professor-management,
+  .course-management {
     padding: 10px;
     table {
       width: 70%;
       margin: 20px auto;
       text-align: center;
       font-size: 1.2rem;
+      caption {
+        font-size: 1.4rem;
+        margin: 15px;
+        font-weight: bold;
+        color: #41035a;
+      }
       tr,
       th,
       td {
@@ -74,7 +82,13 @@ body {
         }
       }
     }
-    .add-student__form {
+    .add-student__form,
+    .add-professor__form {
+      legend {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #345c0b;
+      }
       margin: 30px;
       padding: 10px;
       font-size: 1.2rem;
@@ -85,8 +99,8 @@ body {
           margin-bottom: 5px;
         }
         input {
-          height: 15px;
-          border: 1px solid #ccc;
+          height: 18px;
+          border: 2px solid #ccc;
           border-radius: 5px;
           padding: 5px;
           &:focus {

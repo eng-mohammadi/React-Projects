@@ -24,9 +24,9 @@ const StudentManagement = () => {
     setNewStudent({ ...newStudent, [event.target.name]: event.target.value });
   };
 
-  const handleSubmitHandler = (event) => {
+  const handleSubmitHandler = async (event) => {
     event.preventDefault();
-    addStudent(newStudent);
+    await addStudent(newStudent);
     setNewStudent(initialState);
   };
 
@@ -39,6 +39,7 @@ const StudentManagement = () => {
       <React.Fragment>
         <div className="student-management">
           <table>
+            <caption>مدیریت دانشجویان</caption>
             <thead>
               <tr>
                 <th>نام</th>
@@ -67,61 +68,64 @@ const StudentManagement = () => {
             </tbody>
           </table>
           <div className="add-student__form">
-            <form onSubmit={handleSubmitHandler}>
-              <div className="form-group">
-                <label htmlFor="name">نام : </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  placeholder="نام"
-                  autoComplete="off"
-                  value={newStudent.name}
-                  onChange={inputChangeHandler}
-                />
-              </div>
-              <div className="form-group">
-                <label htmlFor="family">نام خانوادگی : </label>
-                <input
-                  type="text"
-                  id="family"
-                  name="family"
-                  placeholder="نام خانوادگی"
-                  autoComplete="off"
-                  value={newStudent.family}
-                  onChange={inputChangeHandler}
-                />
-              </div>
-              <div className="form-group">
-                <label htmlFor="age">سن : </label>
-                <input
-                  type="number"
-                  id="age"
-                  name="age"
-                  placeholder="سن"
-                  autoComplete="off"
-                  value={newStudent.age}
-                  onChange={inputChangeHandler}
-                />
-              </div>
-              <div className="form-group">
-                <label htmlFor="fieldOfStudy">رشته تحصیلی : </label>
-                <input
-                  type="text"
-                  id="fieldOfStudy"
-                  name="fieldOfStudy"
-                  placeholder="رشته تحصیلی"
-                  autoComplete="off"
-                  value={newStudent.fieldOfStudy}
-                  onChange={inputChangeHandler}
-                />
-              </div>
-              <div className="form-group">
-                <button type="submit" disabled={isAddingStudent}>
-                  افزودن دانشجو
-                </button>
-              </div>
-            </form>
+            <fieldset>
+              <legend>افزودن دانشجو</legend>
+              <form onSubmit={(event) => handleSubmitHandler(event)}>
+                <div className="form-group">
+                  <label htmlFor="name">نام : </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="نام"
+                    autoComplete="off"
+                    value={newStudent.name}
+                    onChange={inputChangeHandler}
+                  />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="family">نام خانوادگی : </label>
+                  <input
+                    type="text"
+                    id="family"
+                    name="family"
+                    placeholder="نام خانوادگی"
+                    autoComplete="off"
+                    value={newStudent.family}
+                    onChange={inputChangeHandler}
+                  />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="age">سن : </label>
+                  <input
+                    type="number"
+                    id="age"
+                    name="age"
+                    placeholder="سن"
+                    autoComplete="off"
+                    value={newStudent.age}
+                    onChange={inputChangeHandler}
+                  />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="fieldOfStudy">رشته تحصیلی : </label>
+                  <input
+                    type="text"
+                    id="fieldOfStudy"
+                    name="fieldOfStudy"
+                    placeholder="رشته تحصیلی"
+                    autoComplete="off"
+                    value={newStudent.fieldOfStudy}
+                    onChange={inputChangeHandler}
+                  />
+                </div>
+                <div className="form-group">
+                  <button type="submit" disabled={isAddingStudent}>
+                    افزودن دانشجو
+                  </button>
+                </div>
+              </form>
+            </fieldset>
           </div>
         </div>
       </React.Fragment>
