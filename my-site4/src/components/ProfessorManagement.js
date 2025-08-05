@@ -35,7 +35,6 @@ const ProfessorManagement = () => {
       personalId: Number(newProfessor.personalId),
       course_list: newProfessor.courseList.split(" "),
     };
-    console.log(payload);
     await addProfessor(payload);
     setNewProfessor(initialState);
   };
