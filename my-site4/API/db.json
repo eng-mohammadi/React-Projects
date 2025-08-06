@@ -1,0 +1,142 @@
+{
+  "students": [
+    {
+      "id": "1",
+      "name": "رضا",
+      "family": "محمدی",
+      "age": 19,
+      "fieldOfStudy": "مهندسی فناوری اطلاعات"
+    },
+    {
+      "id": "2",
+      "name": "علی",
+      "family": "رضایی",
+      "age": 21,
+      "fieldOfStudy": "مهندسی نرم افزار"
+    },
+    {
+      "id": "3",
+      "name": "سارا",
+      "family": "احمدی",
+      "age": 20,
+      "fieldOfStudy": "مهندسی برق"
+    },
+    {
+      "id": "4",
+      "name": "محمد",
+      "family": "کاظمی",
+      "age": 23,
+      "fieldOfStudy": "مهندسی عمران"
+    },
+    {
+      "id": "5",
+      "name": "احسان",
+      "family": "علیزاده",
+      "age": 25,
+      "fieldOfStudy": "مهندسی سخت افزار"
+    }
+  ],
+  "professors": [
+    {
+      "id": "1",
+      "personalId": 1111,
+      "name": "یاسر",
+      "family": "مرادی",
+      "course_list": ["ساختمان داده والگوریتم", "ریاضی"]
+    },
+    {
+      "id": "2",
+      "personalId": 2222,
+      "name": "مریم",
+      "family": "ایزدی",
+      "course_list": ["فیزیک", "ریاضی تخصصی"]
+    },
+    {
+      "id": "3",
+      "personalId": 3333,
+      "name": "ابراهیم",
+      "family": "محمدی",
+      "course_list": ["سیستم های عامل", "شبکه های کامپیوتری", "مدارهای منطقی"]
+    },
+    {
+      "id": "4",
+      "personalId": 4444,
+      "name": "مرتضی",
+      "family": "محمودلو",
+      "course_list": ["فیزیک تخصصی", "دینامیک", "استاتیک"]
+    }
+  ],
+  "courses": [
+    {
+      "id": "1",
+      "courseId": 11,
+      "name": "ساختمان داده و الگوریتم",
+      "numberOfUnits": 3,
+      "professorName": "یاسر مرادی"
+    },
+    {
+      "id": "2",
+      "courseId": 12,
+      "name": "ریاضی",
+      "numberOfUnits": 2,
+      "professorName": "یاسر مرادی"
+    },
+    {
+      "id": "3",
+      "courseId": 13,
+      "name": "فیزیک",
+      "numberOfUnits": 2,
+      "professorName": "مریم ایزدی"
+    },
+    {
+      "id": "4",
+      "courseId": 14,
+      "name": "ریاضی تخصصی",
+      "numberOfUnits": 3,
+      "professorName": "مریم ایزدی"
+    },
+    {
+      "id": "5",
+      "courseId": 15,
+      "name": "سیستم های عامل",
+      "numberOfUnits": 3,
+      "professorName": "ابراهیم محمدی"
+    },
+    {
+      "id": "6",
+      "courseId": 16,
+      "name": "شبکه های کامپیوتری",
+      "numberOfUnits": 3,
+      "professorName": "ابراهیم محمدی"
+    },
+    {
+      "id": "7",
+      "courseId": 17,
+      "name": "مدارهای منطقی",
+      "numberOfUnits": 3,
+      "professorName": "ابراهیم محمدی"
+    },
+    {
+      "id": "8",
+      "courseId": 18,
+      "name": "فیزیک تخصصی",
+      "numberOfUnits": 2,
+      "professorName": "مرتضی محمودلو"
+    },
+    {
+      "id": "9",
+      "courseId": 19,
+      "name": "دینامیک",
+      "numberOfUnits": 3,
+      "professorName": "مرتضی محمودلو"
+    },
+    {
+      "id": "10",
+      "courseId": 20,
+      "name": "استاتیک",
+      "numberOfUnits": 3,
+      "professorName": "مرتضی محمودلو"
+    }
+  ],
+  "selectUnits": []
+}
