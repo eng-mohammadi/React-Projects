@@ -1,100 +1,71 @@
 import React, { useEffect, useState, useRef } from "react";
-// import { useGetRoomsQuery } from "../../redux/services/roomsApi";
 import axios from "axios";
-import { CSSTransition } from "react-transition-group";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
 import NavbarMenu from "./NavbarMenu";
 import Footer from "./Footer";
 
 const Home = () => {
-  // const { data: rooms, isLoading, error } = useGetRoomsQuery();
-  const [sliderImages, setSliderImages] = useState([]);
-  const [slidIndex, setSlideIndex] = useState(0);
+  const [images, setImages] = useState([]);
+  const [index, setIndex] = useState(0);
   const [error, setError] = useState("");
-  const [isEnter, setIsEnter] = useState(false);
 
-  const divRef = useRef(null);
+  const imgRef = useRef(null);
 
   useEffect(() => {
     axios
       .get("http://localhost:3032/rooms")
-      .then((response) =>
-        response.data.map((room) =>
-          room.images.map((img) =>
-            setSliderImages((prevImage) => [...prevImage, img])
-          )
-        )
-      )
-      .catch(() => {
-        const error = new Error("خطای شبکه-داده ای دریافت نشد!");
-        setError(error);
-      });
+      .then((response) => {
+        const imgs = response.data.flatMap((room) => room.images);
+        setImages(imgs);
+      })
+      .catch(() => setError("خطای شبکه: داده‌ای دریافت نشد."));
   }, []);
 
   const goNext = () => {
-    setSlideIndex((nextIndex) => (nextIndex + 1) % sliderImages.length);
+    setIndex((nextIndex) => (nextIndex + 1) % images.length);
   };
 
   const goPrev = () => {
-    setSlideIndex(
-      (prevIndex) => (prevIndex - 1 + sliderImages.length) % sliderImages.length
-    );
+    setIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
   };
-
-  const changeState = () => {
-    setIsEnter((isEnter) => !isEnter);
-  };
-
-  return (
-    <React.Fragment>
-      <NavbarMenu />
-      <main role="main">
-        <CSSTransition
-          classNames="my-class"
-          in={isEnter}
-          timeout={{ enter: 1000, exit: 1000 }}
-          nodeRef={divRef}
-        >
-          <div className="room-image__slider" ref={divRef}>
-            {error ? (
-              <h1>خطا: {error.message}</h1>
-            ) : (
-              sliderImages.map((img, index) => (
-                <img
-                  key={index}
-                  src={[img]}
-                  alt={`Slider${index + 1}`}
-                  className={slidIndex === index ? "active" : "inactive"}
-                />
-              ))
-            )}
-            <div className="slider-buttons">
-              <button
-                type="button"
-                onClick={() => {
-                  goPrev();
-                  changeState();
-                }}
-                disabled={slidIndex === 0}
-              >
-                قبلی
-              </button>
-              <button
-                type="button"
-                onClick={() => {
-                  goNext();
-                  changeState();
-                }}
-                disabled={slidIndex === sliderImages.length - 1}
-              >
-                بعدی
-              </button>
-            </div>
+  if (error) {
+    return <h1 className="error-title">خطا: {error}</h1>;
+  } else if (images.length === 0) {
+    return <h2 className="loading-title">در حال بارگذاری ....</h2>;
+  } else {
+    return (
+      <React.Fragment>
+        <NavbarMenu />
+        <h1>{index}</h1>
+        <div className="slider-container">
+          <TransitionGroup>
+            <CSSTransition
+              key={images[index]}
+              classNames="slide"
+              timeout={500}
+              nodeRef={imgRef}
+            >
+              <img
+                src={images[index]}
+                alt={`Slider ${index + 1}`}
+                className="slider-image"
+                ref={imgRef}
+              />
+            </CSSTransition>
+          </TransitionGroup>
+          <div className="slider-buttons">
+            <button onClick={goPrev} disabled={index <= 1}>
+              قبلی
+            </button>
+            <button onClick={goNext} disabled={index >= images.length - 1}>
+              بعدی
+            </button>
           </div>
-        </CSSTransition>
-      </main>
-      <Footer />
-    </React.Fragment>
-  );
+        </div>
+        <Footer />
+      </React.Fragment>
+    );
+  }
 };
 
 export default Home;
