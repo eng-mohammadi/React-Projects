@@ -22,8 +22,8 @@ const NavbarMenu = () => {
             ? {
                 position: "sticky",
                 top: "0",
-                zIndex: "1",
-                backgroundColor: "#ffc107",
+                zIndex: "10",
+                backgroundColor: "#d1c192",
                 borderRadius: "0 0 10px 10px",
                 transition: "all 0.3s ease-in",
               }
@@ -37,23 +37,48 @@ const NavbarMenu = () => {
           <ul>
             <li>
               <i className="fa-solid fa-house"></i>
-              <Link to="/">خانه</Link>
+              <Link
+                to="/"
+                style={sticky ? { "&:hover": { color: "#f9f9f9" } } : {}}
+              >
+                خانه
+              </Link>
             </li>
             <li>
               <i className="fa-solid fa-right-to-bracket"></i>
-              <Link to="/account">ورود/ثبت نام</Link>
+              <Link
+                to="/account"
+                style={sticky ? { "&:hover": { color: "#f9f9f9" } } : {}}
+              >
+                ورود/ثبت نام
+              </Link>
             </li>
             <li>
               <i className="fa-solid fa-bed"></i>
-              <Link to="/reserve">رزرو</Link>
+              <Link
+                to="/reserve"
+                style={sticky ? { "&:hover": { color: "#f9f9f9" } } : {}}
+              >
+                رزرو
+              </Link>
             </li>
             <li>
               <i className="fa-solid fa-suitcase-rolling"></i>
-              <Link to="/contact-us">پیگیری رزرو</Link>
+              <Link
+                to="/contact-us"
+                style={sticky ? { "&:hover": { color: "#f9f9f9" } } : {}}
+              >
+                پیگیری رزرو
+              </Link>
             </li>
             <li>
               <i className="fa-solid fa-headset"></i>
-              <Link to="/support">پشتیبانی</Link>
+              <Link
+                to="/support"
+                style={sticky ? { "&:hover": { color: "#f9f9f9" } } : {}}
+              >
+                پشتیبانی
+              </Link>
             </li>
           </ul>
         </div>

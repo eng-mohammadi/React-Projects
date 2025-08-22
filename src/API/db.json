@@ -13,10 +13,10 @@
       ],
       "capacity": 2,
       "pricePerNight": 120,
-      "amenities": ["WiFi", "Television", "Mini Bar", "Coffee Maker"]
+      "amenities": ["وای فای", "تلویزیون", "یخچال", "قهوه ساز"]
     },
     {
-      "id": 3,
+      "id": 2,
       "name": "سوئیت خانوادگی",
       "images": [
         "/images/rooms/family-suite/family-suite-3-2023_standard.jpg",
@@ -28,10 +28,10 @@
       ],
       "capacity": 4,
       "pricePerNight": 250,
-      "amenities": ["WiFi", "Cable TV", "Kitchenette", "Private Balcony"]
+      "amenities": ["وای فای", "تلویزیون کابلی", "آشپزخانه کوچک", "بالکن خصوصی"]
     },
     {
-      "id": 5,
+      "id": 3,
       "name": "اتاق یک تخته لوکس",
       "images": [
         "/images/rooms/deluxe-single-room/bell-hotel-chennai.jpg",
@@ -43,157 +43,160 @@
       ],
       "capacity": 1,
       "pricePerNight": 90,
-      "amenities": ["WiFi", "Mini Bar", "Hair Dryer"]
+      "amenities": ["وای فای", "یخچال", "سشوار"]
     }
   ],
   "foods": [
     {
       "id": 1,
-      "name": "american2",
-      "category": "breakfast",
-      "images": "/images/foods/breakfast/american2.webp",
+      "name": "امریکایی",
+      "category": "صبحانه",
+      "image": "/images/foods/breakfast/american2.webp",
+      "description": "2 عدد تخم مرغ نیمرو عسلی، استیک گوشت، سوسیس کوکتل، بیکن گوشت، قارچ، پنیر، لوبیا گرم، یک لیوان آبمیوه طبیعی، یک کاپ لاته به همراه نان تست مخصوص سه میم و نان سنگگ و دورچین خیارشور ، زیتون ، سبزی و لیمو",
       "price": 15
     },
     {
       "id": 2,
-      "name": "continental",
-      "category": "breakfast",
-      "images": "/images/foods/breakfast/continental.webp",
+      "name": "(قاره ای) کانتیننتال",
+      "category": "صبحانه",
+      "image": "/images/foods/breakfast/continental.webp",
+      "description": "تخم مرغ، سوسیس، بیکن، نان تست، کره، مربا، قهوه یا چای",
       "price": 30
     },
     {
       "id": 3,
-      "name": "english",
-      "category": "breakfast",
-      "images": "/images/foods/breakfast/english.webp",
+      "name": "انگلیسی",
+      "category": "صبحانه",
+      "image": "/images/foods/breakfast/english.webp",
+      "description": " بیکن، سوسیس، نیمرو، پودینگ سیاه، خوراک لوبیا، گوجه فرنگی، قارچ، نان تست، قهوه یا چای ",
       "price": 10
     },
     {
       "id": 4,
-      "name": "self-service",
-      "category": "breakfast",
-      "images": "/images/foods/breakfast/self-service.webp",
+      "name": "سلف سرویس",
+      "category": "صبحانه",
+      "image": "/images/foods/breakfast/self-service.webp",
       "price": 10
     },
     {
       "id": 5,
-      "name": "baghali-polo-ba-gardan",
-      "category": "lunch",
-      "images": "/images/foods/lunch/baghali-polo-ba-gardan.jpg",
+      "name": "باقالی پلو با گردن",
+      "category": "ناهار",
+      "image": "/images/foods/lunch/baghali-polo-ba-gardan.jpg",
       "price": 10
     },
     {
       "id": 6,
-      "name": "baghali-polo-ba-mahicheh",
-      "category": "lunch",
-      "images": "/images/foods/lunch/baghali-polo-ba-mahicheh.webp",
+      "name": "باقالی پلو با ماهیچه",
+      "category": "ناهار",
+      "image": "/images/foods/lunch/baghali-polo-ba-mahicheh.webp",
       "price": 10
     },
     {
       "id": 7,
-      "name": "gheymeh-bademjan",
-      "category": "lunch",
-      "images": "/images/foods/lunch/gheymeh-bademjan.jpg",
+      "name": "قیمه بادمجان",
+      "category": "ناهار",
+      "image": "/images/foods/lunch/gheymeh-bademjan.jpg",
       "price": 10
     },
     {
       "id": 8,
-      "name": "khoresht-fesenjoon-morgh",
-      "category": "lunch",
-      "images": "/images/foods/lunch/khoresht-fesenjoon-morgh.jpg",
+      "name": "خورشت فسنجان مرغ",
+      "category": "ناهار",
+      "image": "/images/foods/lunch/khoresht-fesenjoon-morgh.jpg",
       "price": 10
     },
     {
       "id": 9,
-      "name": "mahi-salmon-girilshodeh",
-      "category": "lunch",
-      "images": "/images/foods/lunch/mahi-salmon-girilshodeh.jpg",
+      "name": "ماهی سالمون گریل شده",
+      "category": "ناهار",
+      "image": "/images/foods/lunch/mahi-salmon-girilshodeh.jpg",
       "price": 10
     },
     {
       "id": 10,
-      "name": "zereshkpolo",
-      "category": "lunch",
-      "images": "/images/foods/lunch/zereshkpolo.webp",
+      "name": "زرشک پلو",
+      "category": "ناهار",
+      "image": "/images/foods/lunch/zereshkpolo.webp",
       "price": 10
     },
 
     {
       "id": 11,
-      "name": "chenjeh",
-      "category": "dinner",
-      "images": "/images/foods//diner/chenjeh.jpg",
+      "name": "چنجه",
+      "category": "شام",
+      "image": "/images/foods/dinner/chenjeh.jpg",
       "price": 10
     },
     {
       "id": 12,
-      "name": "ghafghazi",
-      "category": "dinner",
-      "images": "/images/foods/diner/ghafghazi.jpg",
+      "name": "غفغازی",
+      "category": "شام",
+      "image": "/images/foods/dinner/ghafghazi.jpg",
       "price": 10
     },
     {
       "id": 13,
-      "name": "joojeh-bedone-ostokhan",
-      "category": "dinner",
-      "images": "/images/foods/diner/joojeh-bedone-ostokhan.jpg",
+      "name": "جوجه بدون استخوان",
+      "category": "شام",
+      "image": "/images/foods/dinner/joojeh-bedone-ostokhan.jpg",
       "price": 10
     },
     {
       "id": 14,
-      "name": "joojeh-kabab-ba-ostokhan",
-      "category": "dinner",
-      "images": "/images/foods/diner/joojeh-kabab-ba-ostokhan.jpg",
+      "name": "جوجه کباب با استخوان",
+      "category": "شام",
+      "image": "/images/foods/dinner/joojeh-kabab-ba-ostokhan.jpg",
       "price": 10
     },
     {
       "id": 15,
-      "name": "kabab-shishlik",
-      "category": "dinner",
-      "images": "/images/foods/diner/kabab-shishlik.jpg",
+      "name": "کباب شیشلیک",
+      "category": "شام",
+      "image": "/images/foods/dinner/kabab-shishlik.jpg",
       "price": 10
     },
     {
       "id": 16,
-      "name": "morghe-peste",
-      "category": "dinner",
-      "images": "/images/foods/diner/morghe-peste.webp",
+      "name": "مرغ پسته",
+      "category": "شام",
+      "image": "/images/foods/dinner/morghe-peste.webp",
       "price": 10
     },
 
     {
       "id": 17,
-      "name": "boorani",
-      "category": "appetizer",
-      "images": "/images/foods/appetizer/boorani.jpg",
+      "name": "بورانی",
+      "category": "پیش غذا",
+      "image": "/images/foods/appetizer/boorani.jpg",
       "price": 10
     },
     {
       "id": 18,
-      "name": "koko-sabzi",
-      "category": "appetizer",
-      "images": "/images/foods/appetizer/koko-sabzi.jpg",
+      "name": "کوکو سبزی",
+      "category": "پیش غذا",
+      "image": "/images/foods/appetizer/koko-sabzi.jpg",
       "price": 10
     },
     {
       "id": 19,
-      "name": "oloviye",
-      "category": "appetizer",
-      "images": "/images/foods/appetizer/oloviye.jpg",
+      "name": "اولویه",
+      "category": "پیش غذا",
+      "image": "/images/foods/appetizer/oloviye.jpg",
       "price": 10
     },
     {
       "id": 20,
-      "name": "soop",
-      "category": "appetizer",
-      "images": "/images/foods/appetizer/soop.jpg",
+      "name": "سوپ",
+      "category": "پیش غذا",
+      "image": "/images/foods/appetizer/soop.jpg",
       "price": 10
     },
     {
       "id": 21,
-      "name": "taftoon",
-      "category": "appetizer",
-      "images": "/images/foods/appetizer/taftoon.webp",
+      "name": "تافتون",
+      "category": "پیش غذا",
+      "image": "/images/foods/appetizer/taftoon.webp",
       "price": 10
     }
   ]

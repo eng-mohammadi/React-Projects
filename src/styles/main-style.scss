@@ -57,10 +57,11 @@ body {
   align-items: center;
   border: 1px solid #ccc;
   background-color: $footer-bg__color;
+  margin-top: 30px;
   .footer-container {
     display: flex;
     justify-content: space-around;
-    font-family: "Aviy 700";
+    font-family: "Vazir 700";
     .footer-links {
       h4 {
         margin-bottom: 10px;
@@ -145,30 +146,28 @@ body {
     height: 500px;
     border: 1px solid #ccc;
     border-radius: 10px;
-    // position: absolute;
   }
-}
-
-.slider-buttons {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: absolute;
-  top: 270px;
-  button {
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    padding: 8px;
-    font-family: "Iran Sans 700";
-    margin: 0 10px;
-    &:hover {
-      cursor: pointer;
-      background-color: #db96e9;
-      color: $primary-text__color;
-    }
-    &:disabled {
-      cursor: not-allowed;
+  .slider-buttons {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    top: 270px;
+    button {
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 8px;
+      font-family: "Iran Sans 700";
+      margin: 0 10px;
+      &:hover {
+        cursor: pointer;
+        background-color: #db96e9;
+        color: $primary-text__color;
+      }
+      &:disabled {
+        cursor: not-allowed;
+      }
     }
   }
 }
@@ -187,4 +186,206 @@ body {
 .slide-exit-active {
   transform: translateX(-100%);
   transition: transform 500ms ease-out;
+}
+
+.room-cards {
+  width: 100%;
+  height: 530px;
+  padding: 10px;
+  margin-top: 25px;
+  display: flex;
+  flex-wrap: wrap;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+  a {
+    text-decoration: none;
+    .room-card__box {
+      width: 330px;
+      height: 500px;
+      padding: 15px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      box-shadow: 10px 10px 6px rgba(62, 5, 11, 0.5);
+      background-color: $bg-color__room--card;
+      .room-image {
+        text-align: center;
+        img {
+          width: 250px;
+          height: 250px;
+          border-radius: 10px;
+        }
+      }
+      .room-name {
+        font-family: "Iran Sans 700";
+      }
+      p {
+        margin: 6px 0;
+        color: $primary-text__color;
+      }
+      ul {
+        margin: 5px 0;
+        li {
+          color: #077d07;
+        }
+      }
+      &:hover {
+        img {
+          box-shadow: 10px 10px 6px rgba(228, 91, 185, 0.5);
+          transform: scale(1.01);
+          transition: all 0.5s ease;
+        }
+      }
+    }
+  }
+  .hide-show-icon__room {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: -8px;
+    z-index: 1;
+    cursor: pointer;
+    i {
+      font-size: 1.8rem;
+      color: #0f875d;
+      &:hover {
+        color: #e93b87;
+      }
+    }
+  }
+}
+
+hr {
+  width: 90%;
+  margin-top: 25px;
+  border: 1.5px solid #000;
+}
+
+.food-cards {
+  width: 100%;
+  height: 370px;
+  padding: 10px;
+  margin-top: 25px;
+  display: flex;
+  flex-wrap: wrap;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+  a {
+    text-decoration: none;
+    .food-card__box {
+      width: 300px;
+      height: 340px;
+      padding: 15px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      box-shadow: 10px 10px 6px rgba(62, 5, 11, 0.5);
+      background-color: $bg-color;
+      .food-image {
+        text-align: center;
+        img {
+          width: 200px;
+          height: 200px;
+          border-radius: 10px;
+        }
+      }
+      .food-name {
+        font-family: "Iran Sans 700";
+      }
+      p {
+        margin: 6px 0;
+        color: $primary-text__color;
+      }
+    }
+  }
+  .hide-show-icon__food {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: -8px;
+    z-index: 1;
+    cursor: pointer;
+    i {
+      font-size: 1.8rem;
+      color: #0f875d;
+      &:hover {
+        color: #e93b87;
+      }
+    }
+  }
+}
+
+.room-details {
+  width: 70%;
+  margin: 30px auto;
+  position: relative;
+  .room-details_title {
+    text-align: center;
+    font-family: "Vazir 700";
+  }
+  .room-details__images {
+    width: 100%;
+    margin: 10px auto;
+    overflow: hidden;
+    white-space: nowrap;
+    img {
+      width: 100%;
+      height: 500px;
+      border-radius: 10px;
+    }
+  }
+  .room-details__buttons {
+    width: 100%;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    top: 292px;
+    i {
+      font-size: 2rem;
+      color: $primary-text__color;
+      &:hover {
+        cursor: pointer;
+        color: $secondary-text__color;
+      }
+      &:disabled {
+        cursor: not-allowed;
+      }
+    }
+  }
+}
+
+.room-details__slider--enter {
+  opacity: 0;
+  transform: translateX(100%);
+}
+
+.room-details__slider--enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: all 500ms ease-in;
+}
+
+.room-details__slider--exit {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.room-details__slider--exit-active {
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: all 500ms ease-out;
 }
