@@ -235,10 +235,10 @@ body {
         }
       }
       &:hover {
+        transform: scale(1.02);
+        transition: all 0.5s ease;
         img {
           box-shadow: 10px 10px 6px rgba(228, 91, 185, 0.5);
-          transform: scale(1.01);
-          transition: all 0.5s ease;
         }
       }
     }
@@ -282,30 +282,57 @@ hr {
   overflow: hidden;
   white-space: nowrap;
   position: relative;
-  a {
-    text-decoration: none;
-    .food-card__box {
-      width: 300px;
-      height: 340px;
-      padding: 15px;
-      border: 1px solid #ccc;
-      border-radius: 10px;
-      box-shadow: 10px 10px 6px rgba(62, 5, 11, 0.5);
-      background-color: $bg-color;
-      .food-image {
-        text-align: center;
+  .food-card__box {
+    width: 300px;
+    height: 350px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 10px 10px 6px rgba(62, 5, 11, 0.5);
+    background-color: $bg-color;
+    .food-image {
+      text-align: center;
+      a {
+        text-decoration: none;
         img {
           width: 200px;
           height: 200px;
           border-radius: 10px;
         }
       }
-      .food-name {
-        font-family: "Iran Sans 700";
+    }
+    .food-name {
+      font-family: "Iran Sans 700";
+    }
+    p {
+      margin: 6px 0;
+      color: $primary-text__color;
+    }
+    .food-card__button {
+      display: flex;
+      justify-content: space-between;
+      align-self: center;
+      .food-card__icons {
+        i {
+          font-size: 1.3rem;
+          margin: 0 5px;
+          &:hover {
+            cursor: pointer;
+          }
+        }
       }
-      p {
-        margin: 6px 0;
-        color: $primary-text__color;
+      button {
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 5px 8px;
+        font-family: "Vazir 700";
+        background-color: $accent-color;
+        color: #fff;
+        &:hover {
+          cursor: pointer;
+          background-color: $secondary-color;
+          color: $primary-text__color;
+        }
       }
     }
   }
@@ -366,6 +393,58 @@ hr {
       }
     }
   }
+  .room-details__content {
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    padding: 15px;
+    .room-amenities {
+      p {
+        font-family: "Vazir 700";
+        color: $primary-text__color;
+      }
+      ul {
+        li {
+          font-family: "Iran Sans 700";
+          color: $secondary-text__color;
+        }
+      }
+    }
+    .hotel-amenities {
+      p {
+        font-family: "Iran Sans 700";
+        color: $primary-text__color;
+      }
+      ul {
+        li {
+          font-family: "Aviny 700";
+          color: $secondary-text__color;
+          list-style: none;
+          i {
+            margin-left: 5px;
+          }
+        }
+      }
+    }
+    .room-reserve__button {
+      button {
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        padding: 10px 15px;
+        background-color: $secondary-color;
+        font-family: "Iran Sans 700";
+        color: $secondary-text__color;
+        font-size: 1.1rem;
+        &:hover {
+          cursor: pointer;
+          background-color: $bg-color__food--card;
+          color: $primary-text__color;
+        }
+      }
+    }
+  }
 }
 
 .room-details__slider--enter {
@@ -388,4 +467,49 @@ hr {
   opacity: 0;
   transform: translateX(-100%);
   transition: all 500ms ease-out;
+}
+
+.food-details {
+  width: 80%;
+  margin: 25px auto;
+  .food-details__title {
+    font-family: "Vazir 700";
+  }
+  .food-details__content {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .food-details__image {
+      img {
+        width: 400px;
+        height: auto;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+      }
+    }
+    .food-details__info {
+      p {
+        font-family: "Aviny 700";
+        margin: 6px 0;
+        color: $primary-text__color;
+        font-size: 1.1rem;
+      }
+      button {
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        padding: 5px 8px;
+        font-family: "Iran Sans 700";
+        color: $bg-color__room--card;
+        background-color: $primary-color;
+        margin-top: 10px;
+        font-size: 1.1rem;
+        &:hover {
+          cursor: pointer;
+          background-color: darken($primary-color, 20%);
+          color: lighten($secondary-color, 20%);
+        }
+      }
+    }
+  }
 }

@@ -90,6 +90,7 @@
       "name": "باقالی پلو با ماهیچه",
       "category": "ناهار",
       "image": "/images/foods/lunch/baghali-polo-ba-mahicheh.webp",
+      "description": "برنج با طعم دارچین و زعفران، همراه با ماهیچه پخته شده",
       "price": 10
     },
     {
@@ -97,6 +98,7 @@
       "name": "قیمه بادمجان",
       "category": "ناهار",
       "image": "/images/foods/lunch/gheymeh-bademjan.jpg",
+      "description": "برنج با طعم دارچین و زعفران، همراه با ماهیچه پخته شده",
       "price": 10
     },
     {
@@ -104,6 +106,7 @@
       "name": "خورشت فسنجان مرغ",
       "category": "ناهار",
       "image": "/images/foods/lunch/khoresht-fesenjoon-morgh.jpg",
+      "description": "خورشت فسنجان مرغ با برنج زعفرانی",
       "price": 10
     },
     {
@@ -111,6 +114,7 @@
       "name": "ماهی سالمون گریل شده",
       "category": "ناهار",
       "image": "/images/foods/lunch/mahi-salmon-girilshodeh.jpg",
+      "description": "ماهی سالمون گریل شده با سبزیجات بخارپز",
       "price": 10
     },
     {
@@ -118,6 +122,7 @@
       "name": "زرشک پلو",
       "category": "ناهار",
       "image": "/images/foods/lunch/zereshkpolo.webp",
+      "description": "برنج زعفرانی با زرشک و مرغ",
       "price": 10
     },
 
@@ -126,6 +131,7 @@
       "name": "چنجه",
       "category": "شام",
       "image": "/images/foods/dinner/chenjeh.jpg",
+      "description": "کباب چنجه به همراه گوجه و فلفل",
       "price": 10
     },
     {
@@ -133,6 +139,7 @@
       "name": "غفغازی",
       "category": "شام",
       "image": "/images/foods/dinner/ghafghazi.jpg",
+      "description": "کباب غفغازی با برنج زعفرانی",
       "price": 10
     },
     {
@@ -140,6 +147,7 @@
       "name": "جوجه بدون استخوان",
       "category": "شام",
       "image": "/images/foods/dinner/joojeh-bedone-ostokhan.jpg",
+      "description": "جوجه بدون استخوان با برنج زعفرانی",
       "price": 10
     },
     {
@@ -147,6 +155,7 @@
       "name": "جوجه کباب با استخوان",
       "category": "شام",
       "image": "/images/foods/dinner/joojeh-kabab-ba-ostokhan.jpg",
+      "description": "جوجه کباب به همزاه گوجه و فلفل",
       "price": 10
     },
     {
@@ -154,6 +163,7 @@
       "name": "کباب شیشلیک",
       "category": "شام",
       "image": "/images/foods/dinner/kabab-shishlik.jpg",
+      "description": "کباب شیشلیک با برنج زعفرانی",
       "price": 10
     },
     {
@@ -161,6 +171,7 @@
       "name": "مرغ پسته",
       "category": "شام",
       "image": "/images/foods/dinner/morghe-peste.webp",
+      "description": "مرغ پسته با برنج زعفرانی",
       "price": 10
     },
 
@@ -169,6 +180,7 @@
       "name": "بورانی",
       "category": "پیش غذا",
       "image": "/images/foods/appetizer/boorani.jpg",
+      "description": "بورانی با ماست و سبزیجات",
       "price": 10
     },
     {
@@ -176,6 +188,7 @@
       "name": "کوکو سبزی",
       "category": "پیش غذا",
       "image": "/images/foods/appetizer/koko-sabzi.jpg",
+      "description": "کوکو سبزی با سبزیجات تازه",
       "price": 10
     },
     {
@@ -183,6 +196,7 @@
       "name": "اولویه",
       "category": "پیش غذا",
       "image": "/images/foods/appetizer/oloviye.jpg",
+      "description": "سالاد الویه با سیب زمینی و تن ماهی",
       "price": 10
     },
     {
@@ -190,6 +204,7 @@
       "name": "سوپ",
       "category": "پیش غذا",
       "image": "/images/foods/appetizer/soop.jpg",
+      "description": "سوپ با سبزیجات و ادویه‌جات",
       "price": 10
     },
     {
@@ -197,6 +212,7 @@
       "name": "تافتون",
       "category": "پیش غذا",
       "image": "/images/foods/appetizer/taftoon.webp",
+      "description": "نان تافتون تازه",
       "price": 10
     }
   ]

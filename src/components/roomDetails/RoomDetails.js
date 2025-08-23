@@ -11,11 +11,17 @@ const RoomDetails = () => {
   const [index, setIndex] = useState(0);
   const imgRef = useRef();
 
-  if (error) return <h1 className="error-title">خطا: {error.message}</h1>;
-  if (isLoading) return <h2 className="loading-title">در حال بارگذاری...</h2>;
+  if (error) {
+    return <h1 className="error-title">خطا: {error.message}</h1>;
+  }
+  if (isLoading) {
+    return <h2 className="loading-title">در حال بارگذاری...</h2>;
+  }
 
   const room = rooms.find((room) => room.name === params.name);
-  if (!room) return <h3 className="error-title">اتاق مورد نظر یافت نشد</h3>;
+  if (!room) {
+    return <h3 className="error-title">اتاق مورد نظر یافت نشد</h3>;
+  }
 
   const goNext = () => {
     setIndex((nextIndex) => (nextIndex + 1) % room.images.length);
@@ -31,7 +37,7 @@ const RoomDetails = () => {
     <React.Fragment>
       <NavbarMenu />
       <div className="room-details">
-        <h1>{room.name}</h1>
+        <h1 className="room-details_title">{room.name}</h1>
         <CSSTransition
           key={index}
           nodeRef={imgRef}
@@ -49,6 +55,38 @@ const RoomDetails = () => {
         <div className="room-details__buttons">
           <i onClick={goPrev} className="fa-solid fa-angle-right"></i>
           <i onClick={goNext} className="fa-solid fa-angle-left"></i>
+        </div>
+        <div className="room-details__content">
+          <div className="room-amenities">
+            <p>ظرفیت: {room.capacity} نفر</p>
+            <p>قیمت هر شب: {room.pricePerNight} تومان</p>
+            <p>امکانات اتاق:</p>
+            {room.amenities.map((amenity) => (
+              <ul>
+                <li>{amenity}</li>
+              </ul>
+            ))}
+          </div>
+          <div className="hotel-amenities">
+            <p>امکانات هتل:</p>
+            <ul>
+              <li>
+                <i className="fa-solid fa-check"></i>استخر
+              </li>
+              <li>
+                <i className="fa-solid fa-check"></i>سونا
+              </li>
+              <li>
+                <i className="fa-solid fa-check"></i>رستوران
+              </li>
+              <li>
+                <i className="fa-solid fa-check"></i>پارکینگ
+              </li>
+            </ul>
+          </div>
+          <div className="room-reserve__button">
+            <button type="button">رزرو اتاق</button>
+          </div>
         </div>
       </div>
       <Footer />

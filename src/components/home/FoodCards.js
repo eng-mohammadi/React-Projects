@@ -1,71 +1,67 @@
 import React from "react";
 import { useGetFoodsQuery } from "../../redux/services/foodsApi";
-import { Link } from "react-router-dom";
+import FoodCard from "./FoodCard";
 
 const FoodCards = ({ flag, setFlag }) => {
   const { data: foods, isLoading, error } = useGetFoodsQuery();
 
   if (error) {
     return <h1 className="error-title">خطا: {error}</h1>;
-  } else if (isLoading) {
+  }
+  if (isLoading) {
     return <h2 className="loading-title">در حال بارگذاری....</h2>;
-  } else {
-    return (
-      <React.Fragment>
+  }
+
+  return (
+    <React.Fragment>
+      <div
+        className="food-cards"
+        style={
+          flag
+            ? {
+                overflow: "visible",
+                height: "auto",
+              }
+            : { overflow: "hidden" }
+        }
+      >
+        {foods.map((food) => (
+          <FoodCard
+            key={food.id}
+            foodName={food.name}
+            foodImage={food.image}
+            foodCategory={food.category}
+            foodPrice={food.price}
+            flag={flag}
+          />
+        ))}
         <div
-          className="food-cards"
+          className="hide-show-icon__food"
           style={
             flag
               ? {
-                  overflow: "visible",
-                  height: "auto",
+                  position: "absolute",
+                  zIndex: "1",
+                  bottom: "-25px",
                 }
-              : { overflow: "hidden" }
+              : {}
           }
         >
-          {foods.map((food) => (
-            <Link key={food.id} to={`/foods/${food.name}`}>
-              <div
-                className="food-card__box"
-                style={flag ? { backgroundColor: "#bfddf8" } : {}}
-              >
-                <div className="food-image">
-                  <img src={food.image} alt={`image_${food.id}`} />
-                </div>
-                <p className="food-name"> {food.name}</p>
-                <p>وعده غذایی: {food.category}</p>
-                <p>قیمت: {food.price}</p>
-              </div>
-            </Link>
-          ))}
-          <div
-            className="hide-show-icon__food"
-            style={
-              flag
-                ? {
-                    position: "absolute",
-                    zIndex: "1",
-                    bottom: "-25px",
-                  }
-                : {}
-            }
-          >
-            <i
-              className="fa-solid fa-angle-up"
-              style={flag ? { display: "block" } : { display: "none" }}
-              onClick={setFlag}
-            ></i>
-            <i
-              className="fa-solid fa-angle-down"
-              style={flag ? { display: " none" } : { display: "block" }}
-              onClick={setFlag}
-              title="نمایش بیشتر"
-            ></i>
-          </div>
+          <i
+            className="fa-solid fa-angle-up"
+            style={flag ? { display: "block" } : { display: "none" }}
+            onClick={setFlag}
+          ></i>
+          <i
+            className="fa-solid fa-angle-down"
+            style={flag ? { display: " none" } : { display: "block" }}
+            onClick={setFlag}
+            title="نمایش بیشتر"
+          ></i>
         </div>
-      </React.Fragment>
-    );
-  }
+      </div>
+    </React.Fragment>
+  );
 };
 
 export default FoodCards;
