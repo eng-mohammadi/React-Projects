@@ -8,23 +8,7 @@ export const foodsApi = createApi({
       query: () => "foods",
       providesTags: ["Foods"],
     }),
-    addFood: builder.mutation({
-      query: (newFood) => ({
-        url: "foods",
-        method: "POST",
-        body: newFood,
-      }),
-      invalidatesTags: ["Foods"],
-    }),
-    deleteFood: builder.mutation({
-      query: (foodId) => ({
-        url: `foods/${foodId}`,
-        method: "DELETE",
-      }),
-      invalidatesTags: ["Foods"],
-    }),
   }),
 });
 
-export const { useGetFoodsQuery, useAddFoodMutation, useDeleteFoodMutation } =
-  foodsApi;
+export const { useGetFoodsQuery } = foodsApi;

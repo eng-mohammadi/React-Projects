@@ -1,10 +1,15 @@
 import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { setRooms } from "../../redux/rooms/actions";
+import { setFoods } from "../../redux/foods/actions";
 import axios from "axios";
 import NavbarMenu from "../navbarMenu/NavbarMenu";
-import SliderBox from "./SliderBox";
-import RoomCards from "./RoomCards";
-import FoodCards from "./FoodCards";
+import SliderBox from "./sliderBox/SliderBox";
+import RoomCards from "./roomCards/RoomCards";
+import FoodCards from "./foodCards/FoodCards";
 import Footer from "../footer/Footer";
+import SearchRoomsBox from "./searchRoomsBox/SearchRoomsBox";
+import SearchFoodsBox from "./searchFoodsBox/SearchFoodsBox";
 
 const Home = () => {
   const [roomImages, setRoomImages] = useState([]);
@@ -14,6 +19,8 @@ const Home = () => {
   const [error, setError] = useState("");
   const [flag, setFlag] = useState(false);
 
+  const dispatch = useDispatch();
+
   useEffect(() => {
     Promise.all([
       axios.get("http://localhost:3032/rooms"),
@@ -22,11 +29,13 @@ const Home = () => {
       .then(
         axios.spread((rooms, foods) => {
           setRoomImages(rooms.data.flatMap((room) => room.images));
+          dispatch(setRooms(rooms.data));
           setFoodImages(foods.data.flatMap((food) => food.image));
+          dispatch(setFoods(foods.data));
         })
       )
       .catch(() => setError("خطای شبکه: داده‌ای دریافت نشد."));
-  }, []);
+  }, [dispatch]);
 
   return (
     <React.Fragment>
@@ -62,7 +71,11 @@ const Home = () => {
         }
       />
       <hr />
+      <SearchRoomsBox />
+      <hr />
       <RoomCards />
+      <hr />
+      <SearchFoodsBox />
       <hr />
       <FoodCards flag={flag} setFlag={() => setFlag(!flag)} />
       <Footer />

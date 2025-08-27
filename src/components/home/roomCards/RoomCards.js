@@ -1,5 +1,5 @@
 import React from "react";
-import { useGetRoomsQuery } from "../../redux/services/roomsApi";
+import { useGetRoomsQuery } from "../../../redux/services/roomsApi";
 import { Link } from "react-router-dom";
 
 const RoomCards = () => {

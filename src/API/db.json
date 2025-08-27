@@ -53,7 +53,7 @@
       "category": "صبحانه",
       "image": "/images/foods/breakfast/american2.webp",
       "description": "2 عدد تخم مرغ نیمرو عسلی، استیک گوشت، سوسیس کوکتل، بیکن گوشت، قارچ، پنیر، لوبیا گرم، یک لیوان آبمیوه طبیعی، یک کاپ لاته به همراه نان تست مخصوص سه میم و نان سنگگ و دورچین خیارشور ، زیتون ، سبزی و لیمو",
-      "price": 15
+      "price": 23
     },
     {
       "id": 2,
@@ -61,7 +61,7 @@
       "category": "صبحانه",
       "image": "/images/foods/breakfast/continental.webp",
       "description": "تخم مرغ، سوسیس، بیکن، نان تست، کره، مربا، قهوه یا چای",
-      "price": 30
+      "price": 24
     },
     {
       "id": 3,
@@ -69,21 +69,21 @@
       "category": "صبحانه",
       "image": "/images/foods/breakfast/english.webp",
       "description": " بیکن، سوسیس، نیمرو، پودینگ سیاه، خوراک لوبیا، گوجه فرنگی، قارچ، نان تست، قهوه یا چای ",
-      "price": 10
+      "price": 25
     },
     {
       "id": 4,
       "name": "سلف سرویس",
       "category": "صبحانه",
       "image": "/images/foods/breakfast/self-service.webp",
-      "price": 10
+      "price": 26
     },
     {
       "id": 5,
       "name": "باقالی پلو با گردن",
       "category": "ناهار",
       "image": "/images/foods/lunch/baghali-polo-ba-gardan.jpg",
-      "price": 10
+      "price": 26
     },
     {
       "id": 6,
@@ -91,7 +91,7 @@
       "category": "ناهار",
       "image": "/images/foods/lunch/baghali-polo-ba-mahicheh.webp",
       "description": "برنج با طعم دارچین و زعفران، همراه با ماهیچه پخته شده",
-      "price": 10
+      "price": 28
     },
     {
       "id": 7,
@@ -99,7 +99,7 @@
       "category": "ناهار",
       "image": "/images/foods/lunch/gheymeh-bademjan.jpg",
       "description": "برنج با طعم دارچین و زعفران، همراه با ماهیچه پخته شده",
-      "price": 10
+      "price": 29
     },
     {
       "id": 8,
@@ -107,7 +107,7 @@
       "category": "ناهار",
       "image": "/images/foods/lunch/khoresht-fesenjoon-morgh.jpg",
       "description": "خورشت فسنجان مرغ با برنج زعفرانی",
-      "price": 10
+      "price": 30
     },
     {
       "id": 9,
@@ -115,7 +115,7 @@
       "category": "ناهار",
       "image": "/images/foods/lunch/mahi-salmon-girilshodeh.jpg",
       "description": "ماهی سالمون گریل شده با سبزیجات بخارپز",
-      "price": 10
+      "price": 31
     },
     {
       "id": 10,
@@ -123,16 +123,15 @@
       "category": "ناهار",
       "image": "/images/foods/lunch/zereshkpolo.webp",
       "description": "برنج زعفرانی با زرشک و مرغ",
-      "price": 10
+      "price": 32
     },
-
     {
       "id": 11,
       "name": "چنجه",
       "category": "شام",
       "image": "/images/foods/dinner/chenjeh.jpg",
       "description": "کباب چنجه به همراه گوجه و فلفل",
-      "price": 10
+      "price": 33
     },
     {
       "id": 12,
@@ -140,7 +139,7 @@
       "category": "شام",
       "image": "/images/foods/dinner/ghafghazi.jpg",
       "description": "کباب غفغازی با برنج زعفرانی",
-      "price": 10
+      "price": 34
     },
     {
       "id": 13,
@@ -148,7 +147,7 @@
       "category": "شام",
       "image": "/images/foods/dinner/joojeh-bedone-ostokhan.jpg",
       "description": "جوجه بدون استخوان با برنج زعفرانی",
-      "price": 10
+      "price": 35
     },
     {
       "id": 14,
@@ -156,7 +155,7 @@
       "category": "شام",
       "image": "/images/foods/dinner/joojeh-kabab-ba-ostokhan.jpg",
       "description": "جوجه کباب به همزاه گوجه و فلفل",
-      "price": 10
+      "price": 36
     },
     {
       "id": 15,
@@ -164,7 +163,7 @@
       "category": "شام",
       "image": "/images/foods/dinner/kabab-shishlik.jpg",
       "description": "کباب شیشلیک با برنج زعفرانی",
-      "price": 10
+      "price": 37
     },
     {
       "id": 16,
@@ -172,16 +171,15 @@
       "category": "شام",
       "image": "/images/foods/dinner/morghe-peste.webp",
       "description": "مرغ پسته با برنج زعفرانی",
-      "price": 10
+      "price": 38
     },
-
     {
       "id": 17,
       "name": "بورانی",
       "category": "پیش غذا",
       "image": "/images/foods/appetizer/boorani.jpg",
       "description": "بورانی با ماست و سبزیجات",
-      "price": 10
+      "price": 39
     },
     {
       "id": 18,
@@ -189,7 +187,7 @@
       "category": "پیش غذا",
       "image": "/images/foods/appetizer/koko-sabzi.jpg",
       "description": "کوکو سبزی با سبزیجات تازه",
-      "price": 10
+      "price": 40
     },
     {
       "id": 19,
@@ -197,7 +195,7 @@
       "category": "پیش غذا",
       "image": "/images/foods/appetizer/oloviye.jpg",
       "description": "سالاد الویه با سیب زمینی و تن ماهی",
-      "price": 10
+      "price": 41
     },
     {
       "id": 20,
@@ -205,7 +203,7 @@
       "category": "پیش غذا",
       "image": "/images/foods/appetizer/soop.jpg",
       "description": "سوپ با سبزیجات و ادویه‌جات",
-      "price": 10
+      "price": 42
     },
     {
       "id": 21,
@@ -215,5 +213,6 @@
       "description": "نان تافتون تازه",
       "price": 10
     }
-  ]
+  ],
+  "foodReservation": []
 }

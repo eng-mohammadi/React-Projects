@@ -1,6 +1,6 @@
 import React from "react";
-import { useGetFoodsQuery } from "../../redux/services/foodsApi";
-import FoodCard from "./FoodCard";
+import { useGetFoodsQuery } from "../../../redux/services/foodsApi";
+import FoodCard from "../foodCard/FoodCard";
 
 const FoodCards = ({ flag, setFlag }) => {
   const { data: foods, isLoading, error } = useGetFoodsQuery();
