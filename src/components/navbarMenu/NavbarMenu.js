@@ -47,7 +47,7 @@ const NavbarMenu = () => {
             <li>
               <i className="fa-solid fa-right-to-bracket"></i>
               <Link
-                to="/account"
+                to="/accounting"
                 style={sticky ? { "&:hover": { color: "#f9f9f9" } } : {}}
               >
                 ورود/ثبت نام
@@ -56,7 +56,7 @@ const NavbarMenu = () => {
             <li>
               <i className="fa-solid fa-bed"></i>
               <Link
-                to="/reserve"
+                to="/reservation"
                 style={sticky ? { "&:hover": { color: "#f9f9f9" } } : {}}
               >
                 رزرو

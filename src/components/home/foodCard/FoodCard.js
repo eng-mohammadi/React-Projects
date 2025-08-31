@@ -1,27 +1,50 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { CSSTransition } from "react-transition-group";
-import { useDispatch } from "react-redux";
-import { addToCart } from "../../../redux/cart/cartSlice";
+import { loadCart, saveCart } from "../../../utils/localStorage";
+import { useGetAccountingQuery } from "../../../redux/services/accountingApi";
 
 const FoodCard = ({ foodName, foodImage, foodPrice, foodCategory, flag }) => {
+  const { data: accounting } = useGetAccountingQuery();
   const [like, setLike] = useState(false);
   const [dislike, setDislike] = useState(false);
   const likeNodeRef = useRef(null);
   const dislikeNodeRef = useRef(null);
-  const [date, setDate] = useState("");
 
-  const dispatch = useDispatch();
-  const quantity = 1;
-
-  useEffect(() => {
-    setDate(new Date().toString());
-  }, []);
-
-  // const reservedFoods = (event) => {
-  //   event.preventDefault();
-  //   dispatch(addToCart({ foodName, date, foodCategory, foodPrice }));
-  // };
+  const reservedFoods = (event) => {
+    event.preventDefault();
+    if (accounting.length === 0) {
+      window.alert(
+        "لطفا برای رزرو غذا ابتدا فرم رزرو را از تب ورود/ثبت نام تکمیل فرمایید."
+      );
+    } else {
+      const cartItems = loadCart();
+      console.log(cartItems);
+      const existingItemIndex = cartItems.findIndex(
+        (item) => item.foodName === foodName
+      );
+      if (existingItemIndex !== -1) {
+        const updatedCartItems = cartItems.map((item, index) =>
+          index === existingItemIndex
+            ? { ...item, quantity: item.quantity + 1 }
+            : item
+        );
+        saveCart(updatedCartItems);
+      } else {
+        const newItem = {
+          foodName,
+          date: `${new Date().getFullYear()}/${
+            new Date().getMonth() + 1
+          }/${new Date().getDate()}`,
+          hour: `${new Date().getHours()}:${new Date().getMinutes()}`,
+          foodCategory,
+          foodPrice,
+          quantity: 1,
+        };
+        saveCart([...cartItems, newItem]);
+      }
+    }
+  };
 
   return (
     <React.Fragment>
@@ -72,23 +95,8 @@ const FoodCard = ({ foodName, foodImage, foodPrice, foodCategory, flag }) => {
               ></i>
             </CSSTransition>
           </div>
-          <form>
-            <button
-              type="submit"
-              onClick={() =>
-                dispatch(
-                  addToCart({
-                    foodName,
-                    date,
-                    foodCategory,
-                    foodPrice,
-                    quantity,
-                  })
-                )
-              }
-            >
-              رزرو غذا
-            </button>
+          <form onSubmit={reservedFoods}>
+            <button type="submit">رزرو غذا</button>
           </form>
         </div>
       </div>

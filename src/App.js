@@ -4,7 +4,10 @@ import "./styles/main-style.scss";
 import Home from "./components/home/Home";
 import RoomDetails from "./components/roomDetails/RoomDetails";
 import FoodDetails from "./components/foodDetails/FoodDetails";
-import Cart from "./components/cart/Cart";
+import Reservation from "./components/reservation/Reservation";
+import Accounting from "./components/accounting/Accounting";
+import Register from "./components/accounting/register/Register";
+import Login from "./components/accounting/login/Login";
 
 const App = () => {
   return (
@@ -13,7 +16,11 @@ const App = () => {
         <Route path="/" element={<Home />}></Route>
         <Route path="/rooms/:name" element={<RoomDetails />}></Route>
         <Route path="/foods/:name" element={<FoodDetails />}></Route>
-        <Route path="/reserve" element={<Cart />}></Route>
+        <Route path="/reservation" element={<Reservation />}></Route>
+        <Route path="/accounting/" element={<Accounting />}>
+          <Route path="register" element={<Register />}></Route>
+          <Route path="login" element={<Login />}></Route>
+        </Route>
       </Routes>
     </React.Fragment>
   );

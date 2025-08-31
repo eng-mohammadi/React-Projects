@@ -4,22 +4,23 @@ import { foodsApi } from "./services/foodsApi";
 import { foodReservationApi } from "./services/foodReservationApi";
 import { roomsReducer } from "./rooms/reducers";
 import { foodsReducer } from "./foods/reducers";
-import cartSlice from "./cart/cartSlice";
+import { accountingApi } from "./services/accountingApi";
 
 const store = configureStore({
   reducer: {
     [roomsApi.reducerPath]: roomsApi.reducer,
     [foodsApi.reducerPath]: foodsApi.reducer,
     [foodReservationApi.reducerPath]: foodReservationApi.reducer,
+    [accountingApi.reducerPath]: accountingApi.reducer,
     rooms: roomsReducer,
     foods: foodsReducer,
-    cart: cartSlice,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(
       roomsApi.middleware,
       foodsApi.middleware,
-      foodReservationApi.middleware
+      foodReservationApi.middleware,
+      accountingApi.middleware
     ),
 });
 
