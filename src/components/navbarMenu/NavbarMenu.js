@@ -47,7 +47,7 @@ const NavbarMenu = () => {
             <li>
               <i className="fa-solid fa-right-to-bracket"></i>
               <Link
-                to="/accounting"
+                to="accounting"
                 style={sticky ? { "&:hover": { color: "#f9f9f9" } } : {}}
               >
                 ورود/ثبت نام
@@ -56,7 +56,7 @@ const NavbarMenu = () => {
             <li>
               <i className="fa-solid fa-bed"></i>
               <Link
-                to="/reservation"
+                to="reservation"
                 style={sticky ? { "&:hover": { color: "#f9f9f9" } } : {}}
               >
                 رزرو
@@ -65,7 +65,7 @@ const NavbarMenu = () => {
             <li>
               <i className="fa-solid fa-suitcase-rolling"></i>
               <Link
-                to="/contact-us"
+                to="contact-us"
                 style={sticky ? { "&:hover": { color: "#f9f9f9" } } : {}}
               >
                 پیگیری رزرو
@@ -74,7 +74,7 @@ const NavbarMenu = () => {
             <li>
               <i className="fa-solid fa-headset"></i>
               <Link
-                to="/support"
+                to="support"
                 style={sticky ? { "&:hover": { color: "#f9f9f9" } } : {}}
               >
                 پشتیبانی

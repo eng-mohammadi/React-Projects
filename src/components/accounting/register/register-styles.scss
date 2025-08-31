@@ -65,6 +65,7 @@
     .form-checkbox-control {
       width: 100%;
       display: flex;
+      flex-wrap: wrap;
       justify-content: flex-start;
       align-items: center;
       margin-bottom: 15px;
@@ -80,6 +81,10 @@
         margin-bottom: 5px;
         font-family: "Vazir 700";
         color: $primary-text__color;
+      }
+      span {
+        font-family: "Vazir 500";
+        color: red;
       }
     }
   }

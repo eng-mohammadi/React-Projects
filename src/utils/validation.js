@@ -1,4 +1,4 @@
-export const validation = (data) => {
+export const registrationValidation = (data) => {
   const errors = {};
 
   if (!data.name.trim()) {
@@ -27,10 +27,11 @@ export const validation = (data) => {
 
   if (!data.password) {
     errors.password = "فیلد رمز عبور الزامی است";
-  } else if (data.password.length < 6) {
-    errors.password = "فیلد رمز عبور باید بیشتر از 6 کاراکتر باشد";
+  } else if (data.password.length < 8) {
+    errors.password =
+      "فیلد رمز عبور باید بیشتر از 8 کاراکتر و شامل حداقل یک حرف بزرگ، یک حرف کوچک، یک عدد و یک کاراکتر ویژه باشد";
   } else if (
-    !data.password.match(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,}$/)
+    !data.password.match(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{8,}$/)
   ) {
     errors.password =
       "فیلد رمز عبور باید شامل حداقل یک حرف بزرگ، یک حرف کوچک و یک عدد باشد";
@@ -50,6 +51,34 @@ export const validation = (data) => {
     errors.terms = "فیلد پذیرش شرایط الزامی است";
   } else {
     delete errors.terms;
+  }
+
+  return errors;
+};
+
+export const loginValidation = (data) => {
+  const errors = {};
+
+  if (!data.email.trim()) {
+    errors.email = "فیلد ایمیل الزامی است";
+  } else if (!data.email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
+    errors.email = "ایمیل نامعتبر است";
+  } else {
+    delete errors.email;
+  }
+
+  if (!data.password) {
+    errors.password = "فیلد رمز عبور الزامی است";
+  } else if (data.password.length < 8) {
+    errors.password =
+      "فیلد رمز عبور باید بیشتر از 8 کاراکتر و شامل حداقل یک حرف بزرگ، یک حرف کوچک، یک عدد و یک کاراکتر ویژه باشد";
+  } else if (
+    !data.password.match(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{8,}$/)
+  ) {
+    errors.password =
+      "فیلد رمز عبور باید شامل حداقل یک حرف بزرگ، یک حرف کوچک و یک عدد باشد";
+  } else {
+    delete errors.password;
   }
 
   return errors;

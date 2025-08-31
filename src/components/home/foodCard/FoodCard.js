@@ -15,7 +15,7 @@ const FoodCard = ({ foodName, foodImage, foodPrice, foodCategory, flag }) => {
     event.preventDefault();
     if (accounting.length === 0) {
       window.alert(
-        "لطفا برای رزرو غذا ابتدا فرم رزرو را از تب ورود/ثبت نام تکمیل فرمایید."
+        "لطفا برای رزرو غذا ابتدا از تب ورود/ثبت نام وارد حساب کاربری شوید."
       );
     } else {
       const cartItems = loadCart();

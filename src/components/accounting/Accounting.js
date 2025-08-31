@@ -15,12 +15,12 @@ const Accounting = () => {
       <NavbarMenu />
       <div className="accounting-links">
         <ul>
-          <li style={{ display: flag ? "block" : "none" }}>
+          <li style={{ display: flag ? "none" : "block" }}>
             <Link to="register" onClick={changeStateHandler}>
               ثبت نام
             </Link>
           </li>
-          <li style={{ display: flag ? "none" : "block" }}>
+          <li style={{ display: flag ? "block" : "none" }}>
             <Link to="login" onClick={changeStateHandler}>
               ورود
             </Link>

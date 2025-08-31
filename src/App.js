@@ -14,13 +14,13 @@ const App = () => {
     <React.Fragment>
       <Routes>
         <Route path="/" element={<Home />}></Route>
-        <Route path="/rooms/:name" element={<RoomDetails />}></Route>
-        <Route path="/foods/:name" element={<FoodDetails />}></Route>
-        <Route path="/reservation" element={<Reservation />}></Route>
-        <Route path="/accounting/" element={<Accounting />}>
-          <Route path="register" element={<Register />}></Route>
+        <Route path="rooms/:name" element={<RoomDetails />}></Route>
+        <Route path="foods/:name" element={<FoodDetails />}></Route>
+        <Route path="accounting" element={<Accounting />}>
           <Route path="login" element={<Login />}></Route>
+          <Route path="register" element={<Register />}></Route>
         </Route>
+        <Route path="reservation" element={<Reservation />}></Route>
       </Routes>
     </React.Fragment>
   );
