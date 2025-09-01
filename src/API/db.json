@@ -13,12 +13,7 @@
       ],
       "capacity": 2,
       "pricePerNight": 120,
-      "amenities": [
-        "وای فای",
-        "تلویزیون",
-        "یخچال",
-        "قهوه ساز"
-      ]
+      "amenities": ["وای فای", "تلویزیون", "یخچال", "قهوه ساز"]
     },
     {
       "id": "2",
@@ -33,12 +28,7 @@
       ],
       "capacity": 4,
       "pricePerNight": 250,
-      "amenities": [
-        "وای فای",
-        "تلویزیون کابلی",
-        "آشپزخانه کوچک",
-        "بالکن خصوصی"
-      ]
+      "amenities": ["وای فای", "تلویزیون کابلی", "آشپزخانه کوچک", "بالکن خصوصی"]
     },
     {
       "id": "3",
@@ -53,11 +43,7 @@
       ],
       "capacity": 1,
       "pricePerNight": 90,
-      "amenities": [
-        "وای فای",
-        "یخچال",
-        "سشوار"
-      ]
+      "amenities": ["وای فای", "یخچال", "سشوار"]
     }
   ],
   "foods": [
@@ -230,13 +216,27 @@
   ],
   "accounting": [
     {
-      "id": "f27b",
+      "id": "ea36",
       "name": "reza",
       "family": "mohammadi",
-      "email": "hngju@gmail.com",
+      "email": "ghij@gmail.com",
       "password": "1425@Reza",
       "confirmPassword": "1425@Reza",
       "terms": true
     }
-  ]
+  ],
+  "roomReservation": [
+    {
+      "id": "4d35",
+      "name": "reza",
+      "family": "mohammadi",
+      "phone": "09142896363",
+      "checkIn": "2025-09-01",
+      "checkOut": "2025-09-02",
+      "guests": 3,
+      "roomType": "deluxe",
+      "specialRequests": ""
+    }
+  ],
+  "foodReservation": []
 }

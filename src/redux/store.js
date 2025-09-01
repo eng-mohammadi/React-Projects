@@ -5,6 +5,7 @@ import { foodReservationApi } from "./services/foodReservationApi";
 import { roomsReducer } from "./rooms/reducers";
 import { foodsReducer } from "./foods/reducers";
 import { accountingApi } from "./services/accountingApi";
+import { roomReservationApi } from "./services/roomReservationApi";
 
 const store = configureStore({
   reducer: {
@@ -12,6 +13,7 @@ const store = configureStore({
     [foodsApi.reducerPath]: foodsApi.reducer,
     [foodReservationApi.reducerPath]: foodReservationApi.reducer,
     [accountingApi.reducerPath]: accountingApi.reducer,
+    [roomReservationApi.reducerPath]: roomReservationApi.reducer,
     rooms: roomsReducer,
     foods: foodsReducer,
   },
@@ -20,7 +22,8 @@ const store = configureStore({
       roomsApi.middleware,
       foodsApi.middleware,
       foodReservationApi.middleware,
-      accountingApi.middleware
+      accountingApi.middleware,
+      roomReservationApi.middleware
     ),
 });
 

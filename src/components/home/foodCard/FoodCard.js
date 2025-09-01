@@ -3,6 +3,11 @@ import { Link } from "react-router-dom";
 import { CSSTransition } from "react-transition-group";
 import { loadCart, saveCart } from "../../../utils/localStorage";
 import { useGetAccountingQuery } from "../../../redux/services/accountingApi";
+import {
+  useAddFoodReservationMutation,
+  useGetFoodReservationQuery,
+  useUpdateFoodReservationMutation,
+} from "../../../redux/services/foodReservationApi";
 
 const FoodCard = ({ foodName, foodImage, foodPrice, foodCategory, flag }) => {
   const { data: accounting } = useGetAccountingQuery();
@@ -10,16 +15,19 @@ const FoodCard = ({ foodName, foodImage, foodPrice, foodCategory, flag }) => {
   const [dislike, setDislike] = useState(false);
   const likeNodeRef = useRef(null);
   const dislikeNodeRef = useRef(null);
+  const { data: foodReservation } = useGetFoodReservationQuery();
+  const [addFoodReservation] = useAddFoodReservationMutation();
+  const [updateFoodReservation] = useUpdateFoodReservationMutation();
 
-  const reservedFoods = (event) => {
+  const reservedFoods = async (event) => {
     event.preventDefault();
+
     if (accounting.length === 0) {
       window.alert(
         "لطفا برای رزرو غذا ابتدا از تب ورود/ثبت نام وارد حساب کاربری شوید."
       );
     } else {
       const cartItems = loadCart();
-      console.log(cartItems);
       const existingItemIndex = cartItems.findIndex(
         (item) => item.foodName === foodName
       );
@@ -43,6 +51,30 @@ const FoodCard = ({ foodName, foodImage, foodPrice, foodCategory, flag }) => {
         };
         saveCart([...cartItems, newItem]);
       }
+    }
+
+    const newFoodReservation = {
+      foodName,
+      foodCategory,
+      date: `${new Date().getFullYear()}/${
+        new Date().getMonth() + 1
+      }/${new Date().getDate()}`,
+      hour: `${new Date().getHours()}:${new Date().getMinutes()}`,
+      foodPrice,
+      quantity: 1,
+    };
+    const existingFoodReservation = foodReservation.find(
+      (food) => food.name === foodName
+    );
+    if (existingFoodReservation !== -1) {
+      const updateFoodReservation = foodReservation.map((food, id) =>
+        id === existingFoodReservation.id
+          ? { ...food, quantity: food.quantity + 1 }
+          : food
+      );
+      await updateFoodReservation(updateFoodReservation);
+    } else {
+      await addFoodReservation(newFoodReservation);
     }
   };
 

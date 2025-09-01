@@ -83,3 +83,59 @@ export const loginValidation = (data) => {
 
   return errors;
 };
+
+export const reservationValidate = (data) => {
+  const errors = {};
+
+  if (!data.name.trim()) {
+    errors.name = "فیلد نام الزامی است";
+  } else if (data.name.length < 3) {
+    errors.name = "فیلد نام باید بیشتر از 3 کاراکتر باشد";
+  } else {
+    delete errors.name;
+  }
+
+  if (!data.family.trim()) {
+    errors.family = "فیلد نام خانوادگی الزامی است";
+  } else if (data.family.length < 5) {
+    errors.family = "فیلد نام خانوادگی باید بیشتر از 5 کاراکتر باشد";
+  } else {
+    delete errors.family;
+  }
+
+  if (!data.phone) {
+    errors.phone = "فیلد تلفن الزامی است";
+  } else if (!data.phone.length < 0 || data.phone.length < 11) {
+    errors.phone = "فیلد تلفن باید شامل 11 رقم باشد";
+  } else if (!data.phone.match(/^09\d{9}$/)) {
+    errors.phone = "شماره تلفن نامعتبر است";
+  } else {
+    delete errors.phone;
+  }
+
+  if (!data.checkIn) {
+    errors.checkIn = "تاریخ ورود الزامی است";
+  } else {
+    delete errors.checkIn;
+  }
+
+  if (!data.checkOut) {
+    errors.checkOut = "تاریخ خروج الزامی است";
+  } else {
+    delete errors.checkOut;
+  }
+
+  if (!data.guests) {
+    errors.guests = "تعداد میهمانان الزامی است";
+  } else {
+    delete errors.guests;
+  }
+
+  if (!data.roomType) {
+    errors.roomType = "نوع اتاق الزامی است";
+  } else {
+    delete errors.roomType;
+  }
+
+  return errors;
+};
