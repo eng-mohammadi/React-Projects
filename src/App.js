@@ -8,6 +8,7 @@ import Reservation from "./components/reservation/Reservation";
 import Accounting from "./components/accounting/Accounting";
 import Register from "./components/accounting/register/Register";
 import Login from "./components/accounting/login/Login";
+import FoodCart from "./components/cart/FoodCart";
 
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
           <Route path="register" element={<Register />}></Route>
         </Route>
         <Route path="reservation" element={<Reservation />}></Route>
+        <Route path="cart" element={<FoodCart />}></Route>
       </Routes>
     </React.Fragment>
   );

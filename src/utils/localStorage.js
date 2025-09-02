@@ -1,6 +1,6 @@
 export const loadCart = () => {
   try {
-    const items = window.localStorage.getItem("cartItems") || [];
+    const items = window.localStorage.getItem("cartItems");
     return items ? JSON.parse(items) : [];
   } catch (error) {
     console.log("خطا در بارگذاری سبد خرید", error);

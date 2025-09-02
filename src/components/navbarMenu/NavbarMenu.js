@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const NavbarMenu = () => {
   const [sticky, setSticky] = useState(false);
+  const cartItemsCount = useSelector((state) => state.counter.number);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -81,6 +83,12 @@ const NavbarMenu = () => {
               </Link>
             </li>
           </ul>
+        </div>
+        <div className="foodCart-icon">
+          <Link to="cart">
+            <span>({cartItemsCount})</span>
+            <i className="fa-solid fa-utensils"></i>
+          </Link>
         </div>
       </div>
     </React.Fragment>
