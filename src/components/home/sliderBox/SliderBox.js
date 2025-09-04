@@ -11,7 +11,7 @@ const SliderBox = ({ error, title, images, index, goNext, goPrev }) => {
   } else {
     return (
       <React.Fragment>
-        <div className="slider-container">
+        <header className="slider-container">
           <TransitionGroup>
             <CSSTransition
               key={images[index]}
@@ -35,7 +35,7 @@ const SliderBox = ({ error, title, images, index, goNext, goPrev }) => {
               بعدی
             </button>
           </div>
-        </div>
+        </header>
       </React.Fragment>
     );
   }

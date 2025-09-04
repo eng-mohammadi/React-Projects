@@ -9,34 +9,15 @@ export const foodReservationApi = createApi({
       providesTags: ["FoodReservation"],
     }),
     addFoodReservation: builder.mutation({
-      query: (newReservation) => ({
+      query: (items) => ({
         url: "foodReservation",
         method: "POST",
-        body: newReservation,
-      }),
-      invalidatesTags: ["FoodReservation"],
-    }),
-    updateFoodReservation: builder.mutation({
-      query: ({ id, food }) => ({
-        url: `foodReservation/${id}`,
-        method: "PATCH",
-        body: { food },
-      }),
-      invalidatesTags: ["FoodReservation"],
-    }),
-    deleteFoodReservation: builder.mutation({
-      query: (id) => ({
-        url: `foodReservation/${id}`,
-        method: "DELETE",
+        body: items,
       }),
       invalidatesTags: ["FoodReservation"],
     }),
   }),
 });
 
-export const {
-  useGetFoodReservationQuery,
-  useAddFoodReservationMutation,
-  useUpdateFoodReservationMutation,
-  useDeleteFoodReservationMutation,
-} = foodReservationApi;
+export const { useGetFoodReservationQuery, useAddFoodReservationMutation } =
+  foodReservationApi;

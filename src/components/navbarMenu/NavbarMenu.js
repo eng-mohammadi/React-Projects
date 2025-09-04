@@ -17,7 +17,7 @@ const NavbarMenu = () => {
 
   return (
     <React.Fragment>
-      <div
+      <nav
         className="navbar-menu"
         style={
           sticky
@@ -90,7 +90,7 @@ const NavbarMenu = () => {
             <i className="fa-solid fa-utensils"></i>
           </Link>
         </div>
-      </div>
+      </nav>
     </React.Fragment>
   );
 };

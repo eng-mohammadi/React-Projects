@@ -2,6 +2,7 @@ import {
   INCREASE_COUNTER,
   DECREASE_COUNTER,
   CONSTANT_COUNTER,
+  RESET_COUNTER,
 } from "./ActionTypes";
 
 const initialState = {
@@ -16,6 +17,8 @@ export const counterReducer = (state = initialState, action) => {
       return { ...state, number: state.number > 0 ? state.number - 1 : 0 };
     case CONSTANT_COUNTER:
       return { ...state, number: state.number };
+    case RESET_COUNTER:
+      return { ...state, number: 0 };
     default:
       return state;
   }

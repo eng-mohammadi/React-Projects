@@ -40,6 +40,7 @@ const Home = () => {
   return (
     <React.Fragment>
       <NavbarMenu />
+
       <SliderBox
         title="اتاق ها"
         error={error}
@@ -71,13 +72,15 @@ const Home = () => {
         }
       />
       <hr />
-      <SearchRoomsBox />
-      <hr />
-      <RoomCards />
-      <hr />
-      <SearchFoodsBox />
-      <hr />
-      <FoodCards flag={flag} setFlag={() => setFlag(!flag)} />
+      <main role="main">
+        <SearchRoomsBox />
+        <hr />
+        <RoomCards />
+        <hr />
+        <SearchFoodsBox />
+        <hr />
+        <FoodCards flag={flag} setFlag={() => setFlag(!flag)} />
+      </main>
       <Footer />
     </React.Fragment>
   );

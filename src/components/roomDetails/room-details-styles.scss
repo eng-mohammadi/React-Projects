@@ -75,6 +75,15 @@
         }
       }
     }
+    .room-details__icons {
+      i {
+        font-size: 1.5rem;
+        margin: 0 5px;
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
     .room-reserve__button {
       button {
         border: 1px solid #ccc;

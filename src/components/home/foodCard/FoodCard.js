@@ -30,15 +30,25 @@ const FoodCard = ({ foodName, foodImage, foodPrice, foodCategory, flag }) => {
         (item) => item.foodName === foodName
       );
       if (existingItemIndex !== -1) {
-        const updatedCartItems = cartItems.map((item, index) =>
-          index === existingItemIndex
-            ? { ...item, quantity: item.quantity + 1 }
-            : item
-        );
+        const updatedCartItems = cartItems.map((item, index) => {
+          if (index !== existingItemIndex) return item;
+
+          let totalPrice = item.foodPrice;
+          totalPrice += item.quantity * item.foodPrice;
+          const newQuantity = item.quantity + 1;
+
+          return {
+            ...item,
+            quantity: newQuantity,
+            foodPrice,
+            totalPrice,
+          };
+        });
         saveCart(updatedCartItems);
         dispatch(constantCounter());
       } else {
         const newItem = {
+          id: cartItems.length + 1,
           foodName,
           date: `${new Date().getFullYear()}/${
             new Date().getMonth() + 1
@@ -46,6 +56,7 @@ const FoodCard = ({ foodName, foodImage, foodPrice, foodCategory, flag }) => {
           hour: `${new Date().getHours()}:${new Date().getMinutes()}`,
           foodCategory,
           foodPrice,
+          totalPrice: foodPrice,
           quantity: 1,
         };
         saveCart([...cartItems, newItem]);
@@ -67,7 +78,7 @@ const FoodCard = ({ foodName, foodImage, foodPrice, foodCategory, flag }) => {
         </div>
         <p className="food-name"> {foodName}</p>
         <p>وعده غذایی: {foodCategory}</p>
-        <p>قیمت: {foodPrice}</p>
+        <p>قیمت: {foodPrice.toLocaleString("fa-IR")} تومان</p>
         <div className="food-card__button">
           <div className="food-card__icons">
             <CSSTransition

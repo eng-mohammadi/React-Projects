@@ -28,7 +28,6 @@ const Reservation = () => {
             validate={reservationValidate}
             onSubmit={(values, { setSubmitting, resetForm }) => {
               setTimeout(() => {
-                console.log(values);
                 setSubmitting(false);
                 addRoomReservation(values);
                 resetForm();

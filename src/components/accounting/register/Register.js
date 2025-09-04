@@ -11,8 +11,6 @@ const Register = () => {
       <div className="register-container">
         <Formik
           initialValues={{
-            name: "",
-            family: "",
             email: "",
             password: "",
             confirmPassword: "",
@@ -30,28 +28,6 @@ const Register = () => {
         >
           {({ isSubmitting }) => (
             <Form>
-              <div className="form-control">
-                <label htmlFor="name">نام</label>
-                <Field
-                  type="text"
-                  name="name"
-                  id="name"
-                  autoComplete="off"
-                  placeholder="نام"
-                />
-                <ErrorMessage name="name" component="span" />
-              </div>
-              <div className="form-control">
-                <label htmlFor="family">نام خانوادگی</label>
-                <Field
-                  type="text"
-                  name="family"
-                  id="family"
-                  autoComplete="off"
-                  placeholder="نام خانوادگی"
-                />
-                <ErrorMessage name="family" component="span" />
-              </div>
               <div className="form-control">
                 <label htmlFor="email">ایمیل</label>
                 <Field

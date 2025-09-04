@@ -1,22 +1,6 @@
 export const registrationValidation = (data) => {
   const errors = {};
 
-  if (!data.name.trim()) {
-    errors.name = "فیلد نام الزامی است";
-  } else if (data.name.length < 3) {
-    errors.name = "فیلد نام باید بیشتر از 3 کاراکتر باشد";
-  } else {
-    delete errors.name;
-  }
-
-  if (!data.family.trim()) {
-    errors.family = "فیلد نام خانوادگی الزامی است";
-  } else if (data.family.length < 5) {
-    errors.family = "فیلد نام خانوادگی باید بیشتر از 5 کاراکتر باشد";
-  } else {
-    delete errors.family;
-  }
-
   if (!data.email.trim()) {
     errors.email = "فیلد ایمیل الزامی است";
   } else if (!data.email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {

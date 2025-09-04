@@ -1,15 +1,32 @@
 import React, { useState, useRef } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useGetRoomsQuery } from "../../redux/services/roomsApi";
+import { useGetAccountingQuery } from "../../redux/services/accountingApi";
 import { CSSTransition } from "react-transition-group";
 import NavbarMenu from "../navbarMenu/NavbarMenu";
 import Footer from "../footer/Footer";
 
 const RoomDetails = () => {
   const { data: rooms, isLoading, error } = useGetRoomsQuery();
+  const { data: accounting } = useGetAccountingQuery();
   const params = useParams();
   const [index, setIndex] = useState(0);
   const imgRef = useRef();
+  const [like, setLike] = useState(false);
+  const [dislike, setDislike] = useState(false);
+  const likeNodeRef = useRef(null);
+  const dislikeNodeRef = useRef(null);
+  const navigate = useNavigate();
+
+  const reservedRoom = () => {
+    if (accounting.length === 0) {
+      window.alert(
+        "لطفا برای رزرو غذا ابتدا از تب ورود/ثبت نام وارد حساب کاربری شوید."
+      );
+    } else {
+      navigate("/reservation");
+    }
+  };
 
   if (error) {
     return <h1 className="error-title">خطا: {error.message}</h1>;
@@ -84,8 +101,44 @@ const RoomDetails = () => {
               </li>
             </ul>
           </div>
+          <div className="room-details__icons">
+            <CSSTransition
+              nodeRef={likeNodeRef}
+              in={like}
+              timeout={300}
+              classNames="translate-like-icon"
+            >
+              <i
+                className="fa-regular fa-thumbs-up"
+                onClick={() => {
+                  setLike(!like);
+                  if (!like) setDislike(false);
+                }}
+                style={like ? { color: "yellowGreen" } : { color: "" }}
+                ref={likeNodeRef}
+              ></i>
+            </CSSTransition>
+            <CSSTransition
+              nodeRef={dislikeNodeRef}
+              in={dislike}
+              timeout={300}
+              classNames="translate-dislike-icon"
+            >
+              <i
+                className="fa-regular fa-thumbs-down"
+                onClick={() => {
+                  setDislike(!dislike);
+                  if (!dislike) setLike(false);
+                }}
+                style={dislike ? { color: "red" } : { color: "" }}
+                ref={dislikeNodeRef}
+              ></i>
+            </CSSTransition>
+          </div>
           <div className="room-reserve__button">
-            <button type="button">رزرو اتاق</button>
+            <button type="button" onClick={reservedRoom}>
+              رزرو اتاق
+            </button>
           </div>
         </div>
       </div>

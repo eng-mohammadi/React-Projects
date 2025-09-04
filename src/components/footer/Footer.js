@@ -3,7 +3,7 @@ import React from "react";
 const Footer = () => {
   return (
     <React.Fragment>
-      <div className="footer">
+      <footer className="footer">
         <div className="footer-container">
           <div className="footer-links">
             <h4>هتل آنلاین</h4>
@@ -42,7 +42,7 @@ const Footer = () => {
           <i className="fab fa-twitter"></i>
           <i className="fab fa-facebook-f"></i>
         </div>
-      </div>
+      </footer>
     </React.Fragment>
   );
 };

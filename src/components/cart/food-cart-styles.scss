@@ -39,6 +39,49 @@
           }
         }
       }
+      .quantity-control {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        .fa-plus {
+          &:hover {
+            cursor: pointer;
+            color: #14f314;
+          }
+        }
+        .fa-minus {
+          &:hover {
+            color: red;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+  .total-price {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 15px;
+    h3 {
+      font-family: "Iran Sans 700";
+      color: $primary-text__color;
+      font-size: 1.6rem;
+    }
+    button {
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      padding: 10px 15px;
+      background-color: darken(#14f314, 20%);
+      font-family: "Vazir 700";
+      color: $primary-text__color;
+      font-size: 1.2rem;
+      &:hover {
+        background-color: #14f314;
+        cursor: pointer;
+      }
     }
   }
 }

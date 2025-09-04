@@ -21,7 +21,9 @@ const RoomCards = () => {
                 </div>
                 <p className="room-name"> {room.name}</p>
                 <p>ظرفیت: {room.capacity}</p>
-                <p> قیمت هر شب: {room.pricePerNight}</p>
+                <p>
+                  قیمت هر شب: {room.pricePerNight.toLocaleString("fa-IR")} تومان
+                </p>
                 <p>امکانات:</p>
                 {room.amenities.map((amenity, index) => (
                   <ul key={index}>
