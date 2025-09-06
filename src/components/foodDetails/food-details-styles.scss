@@ -27,19 +27,53 @@
         color: $primary-text__color;
         font-size: 1.1rem;
       }
-      button {
-        border: 1px solid #ccc;
-        border-radius: 8px;
-        padding: 5px 8px;
-        font-family: "Iran Sans 700";
-        color: $bg-color__room--card;
-        background-color: $primary-color;
-        margin: 10px 50px;
-        font-size: 1.1rem;
-        &:hover {
-          cursor: pointer;
-          background-color: darken($primary-color, 20%);
-          color: lighten($secondary-color, 20%);
+      .food-details__buttons {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        .food-details__quantity {
+          width: 100px;
+          padding: 10px;
+          border: 2px solid #ccc;
+          border-radius: 10px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          gap: 10px;
+          .plus-icon {
+            font-size: 1.2rem;
+            color: $primary-text__color;
+            &:hover {
+              cursor: pointer;
+              color: #0df20d;
+            }
+          }
+          .minus-icon {
+            font-size: 1.2rem;
+            color: $primary-text__color;
+            &:hover {
+              cursor: pointer;
+              color: red;
+            }
+          }
+          span {
+            font-size: 1.2rem;
+          }
+        }
+        button {
+          border: 1px solid #ccc;
+          border-radius: 8px;
+          padding: 5px 8px;
+          font-family: "Iran Sans 700";
+          color: $bg-color__room--card;
+          background-color: $primary-color;
+          margin: 10px 50px;
+          font-size: 1.1rem;
+          &:hover {
+            cursor: pointer;
+            background-color: darken($primary-color, 20%);
+            color: lighten($secondary-color, 20%);
+          }
         }
       }
     }

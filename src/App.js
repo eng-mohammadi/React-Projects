@@ -9,6 +9,7 @@ import Accounting from "./components/accounting/Accounting";
 import Register from "./components/accounting/register/Register";
 import Login from "./components/accounting/login/Login";
 import FoodCart from "./components/cart/FoodCart";
+import BookingTracking from "./components/bookingTracking/BookingTracking";
 
 const App = () => {
   return (
@@ -23,6 +24,7 @@ const App = () => {
         </Route>
         <Route path="reservation" element={<Reservation />}></Route>
         <Route path="cart" element={<FoodCart />}></Route>
+        <Route path="booking-tracking" element={<BookingTracking />}></Route>
       </Routes>
     </React.Fragment>
   );

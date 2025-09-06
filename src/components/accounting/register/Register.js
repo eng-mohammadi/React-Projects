@@ -2,9 +2,11 @@ import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { registrationValidation } from "../../../utils/validation";
 import { useAddAccountingMutation } from "../../../redux/services/accountingApi";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
   const [addAccounting] = useAddAccountingMutation();
+  const navigate = useNavigate();
   return (
     <React.Fragment>
       <h2 className="accounting-title">ثبت نام</h2>
@@ -23,6 +25,7 @@ const Register = () => {
               addAccounting(values);
               resetForm();
               window.alert("ثبت نام با موفقیت انجام شد");
+              navigate("/accounting/login");
             }, 3000);
           }}
         >

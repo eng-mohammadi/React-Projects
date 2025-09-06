@@ -66,7 +66,7 @@ const FoodCart = () => {
 
   const submitFoodReservationHandler = (event) => {
     event.preventDefault();
-    window.alert("رزرو غذای شما با موفقیت انجام شد!");
+    window.alert("رزرو غذای شما با موفقیت انجام شد");
     const items = JSON.parse(window.localStorage.getItem("cartItems") || []);
     items.forEach((item) => {
       addFoodReservation(item);

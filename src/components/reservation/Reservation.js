@@ -31,7 +31,7 @@ const Reservation = () => {
                 setSubmitting(false);
                 addRoomReservation(values);
                 resetForm();
-                window.alert("رزرو شما ثبت شد!");
+                window.alert("رزرو شما با موفقیت ثبت شد");
               }, 3000);
             }}
           >

@@ -21,7 +21,7 @@ const RoomDetails = () => {
   const reservedRoom = () => {
     if (accounting.length === 0) {
       window.alert(
-        "لطفا برای رزرو غذا ابتدا از تب ورود/ثبت نام وارد حساب کاربری شوید."
+        "لطفا برای رزرو اتاق ابتدا از تب ورود/ثبت نام وارد حساب کاربری شوید."
       );
     } else {
       navigate("/reservation");

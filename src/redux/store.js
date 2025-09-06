@@ -4,6 +4,7 @@ import { foodsApi } from "./services/foodsApi";
 import { foodReservationApi } from "./services/foodReservationApi";
 import { roomsReducer } from "./rooms/reducers";
 import { foodsReducer } from "./foods/reducers";
+import { bookingTrackingReducer } from "./bookingTracking/reducers";
 import { accountingApi } from "./services/accountingApi";
 import { roomReservationApi } from "./services/roomReservationApi";
 import { counterReducer } from "./counter/counterReducers";
@@ -30,6 +31,7 @@ const rootReducer = combineReducers({
   [foodReservationApi.reducerPath]: foodReservationApi.reducer,
   [accountingApi.reducerPath]: accountingApi.reducer,
   [roomReservationApi.reducerPath]: roomReservationApi.reducer,
+  bookingTracking: bookingTrackingReducer,
   rooms: roomsReducer,
   foods: foodsReducer,
   counter: counterReducer,
