@@ -215,13 +215,7 @@
     }
   ],
   "accounting": [
-    {
-      "id": "a6b4",
-      "email": "mkih@gmail.com",
-      "password": "1425@Reza",
-      "confirmPassword": "1425@Reza",
-      "terms": true
-    }
+
   ],
   "roomReservation": [],
   "foodReservation": []
