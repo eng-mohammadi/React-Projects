@@ -223,29 +223,6 @@
       "terms": true
     }
   ],
-  "roomReservation": [
-    {
-      "id": "7233",
-      "name": "رضا",
-      "family": "محمدی",
-      "phone": "09147895522",
-      "checkIn": "2025-09-06",
-      "checkOut": "2025-09-08",
-      "guests": 2,
-      "roomType": "suite",
-      "specialRequests": ""
-    },
-    {
-      "id": "4917",
-      "name": "افروز",
-      "family": "محمدی",
-      "phone": "09143694158",
-      "checkIn": "2025-09-24",
-      "checkOut": "2025-10-01",
-      "guests": 5,
-      "roomType": "deluxe",
-      "specialRequests": ""
-    }
-  ],
+  "roomReservation": [],
   "foodReservation": []
 }
