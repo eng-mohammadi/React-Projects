@@ -13,12 +13,7 @@
       ],
       "capacity": 2,
       "pricePerNight": 2300000,
-      "amenities": [
-        "وای فای",
-        "تلویزیون",
-        "یخچال",
-        "قهوه ساز"
-      ]
+      "amenities": ["وای فای", "تلویزیون", "یخچال", "قهوه ساز"]
     },
     {
       "id": "2",
@@ -33,12 +28,7 @@
       ],
       "capacity": 4,
       "pricePerNight": 3800000,
-      "amenities": [
-        "وای فای",
-        "تلویزیون کابلی",
-        "آشپزخانه کوچک",
-        "بالکن خصوصی"
-      ]
+      "amenities": ["وای فای", "تلویزیون کابلی", "آشپزخانه کوچک", "بالکن خصوصی"]
     },
     {
       "id": "3",
@@ -53,11 +43,7 @@
       ],
       "capacity": 1,
       "pricePerNight": 1500000,
-      "amenities": [
-        "وای فای",
-        "یخچال",
-        "سشوار"
-      ]
+      "amenities": ["وای فای", "یخچال", "سشوار"]
     }
   ],
   "foods": [
@@ -228,62 +214,7 @@
       "price": 35000
     }
   ],
-  "accounting": [
-<<<<<<< HEAD
-    {
-      "id": "c895",
-      "email": "mjhi@gmail.com",
-      "password": "1425@Reza",
-      "confirmPassword": "1425@Reza",
-      "terms": true
-    }
-=======
-
->>>>>>> origin/reza-new
-  ],
-  "roomReservation": [
-    {
-      "id": "b74f",
-      "name": "رضا",
-      "family": "محمدی",
-      "phone": "09147896525",
-      "checkIn": "2025-09-08",
-      "checkOut": "2025-09-09",
-      "guests": 2,
-      "roomType": "double",
-      "specialRequests": ""
-    }
-  ],
-  "foodReservation": [
-    {
-      "id": "5480",
-      "foodName": "امریکایی",
-      "date": "2025-9-8",
-      "hour": "23:9",
-      "foodCategory": "صبحانه",
-      "foodPrice": 300000,
-      "totalPrice": 900000,
-      "quantity": 5
-    },
-    {
-      "id": "2caf",
-      "foodName": "(قاره ای) کانتیننتال",
-      "date": "2025-9-8",
-      "hour": "23:9",
-      "foodCategory": "صبحانه",
-      "foodPrice": 300000,
-      "totalPrice": 600000,
-      "quantity": 2
-    },
-    {
-      "id": "fa4a",
-      "foodName": "انگلیسی",
-      "date": "2025-9-8",
-      "hour": "23:9",
-      "foodCategory": "صبحانه",
-      "foodPrice": 320000,
-      "totalPrice": 320000,
-      "quantity": 1
-    }
-  ]
+  "accounting": [],
+  "roomReservation": [],
+  "foodReservation": []
 }
