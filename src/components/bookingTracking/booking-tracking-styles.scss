@@ -96,6 +96,30 @@
           font-family: "Vazir 700";
           font-size: 1.2rem;
           color: $secondary-text__color;
+          .delete-button {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 5px 8px;
+            font-family: "Vazir 500";
+            background-color: lighten($primary-color, 30%);
+            color: #fff;
+            &:hover {
+              cursor: pointer;
+              background-color: $accent-color;
+            }
+          }
+          .edit-button {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 5px 8px;
+            font-family: "Vazir 500";
+            background-color: lighten($primary-color, 30%);
+            color: #fff;
+            &:hover {
+              cursor: pointer;
+              background-color: $secondary-color;
+            }
+          }
         }
       }
     }

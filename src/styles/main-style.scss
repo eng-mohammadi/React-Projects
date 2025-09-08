@@ -1,6 +1,6 @@
 @import "../components/navbarMenu/navbar-menu-styles";
 @import "../components/footer/footer-styles";
-@import "../components/home/sliderBox/slider-box-styles";
+@import "../components/sliderBox/slider-box-styles.scss";
 @import "../components/home/roomCards/room-cards-styles";
 @import "../components/home/foodCards/food-cards-styles";
 @import "../components/home/foodCard/food-card-styles";
@@ -12,8 +12,13 @@
 @import "../components/accounting/accounting-styles.scss";
 @import "../components/accounting/register/register-styles.scss";
 @import "../components/accounting/login/login-styles.scss";
-@import "../components/reservation/reservation-styles.scss";
+@import "../components/roomReservation/room-reservation-styles.scss";
+@import "../components/roomReservation/editReservation/edit-reservation-styles.scss";
+@import "../components/roomReservation/newReservation/new-reservation-styles.scss";
 @import "../components/bookingTracking/booking-tracking-styles.scss";
+@import "../components/advertisement/advertisement-styles.scss";
+@import "../components/home/home-styles.scss";
+@import "../components/support/support-styles.scss";
 
 * {
   box-sizing: border-box;

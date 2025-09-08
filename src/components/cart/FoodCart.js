@@ -7,30 +7,41 @@ import {
   decreaseCounter,
 } from "../../redux/counter/counterActions";
 import { useDispatch } from "react-redux";
-import { useAddFoodReservationMutation } from "../../redux/services/foodReservationApi";
+import {
+  useAddFoodReservationMutation,
+  useEditFoodReservationMutation,
+} from "../../redux/services/foodReservationApi";
 import { useNavigate } from "react-router-dom";
 
-const FoodCart = () => {
+const FoodCart = ({ selectedFoodReservation }) => {
   const initialCart = loadCart();
   const [items, setItems] = useState(initialCart);
   const dispatch = useDispatch();
   const [addFoodReservation, { isLoading: isAddingFoodReservation }] =
     useAddFoodReservationMutation();
+  const [editFoodReservation] = useEditFoodReservationMutation();
+  const [quantity, setQuantity] = useState(
+    selectedFoodReservation?.quantity || 0
+  );
+  const [totalPrice, setTotalPrice] = useState(
+    selectedFoodReservation?.totalPrice || 0
+  );
+
   const navigate = useNavigate();
 
-  const removeFromCart = (id) => {
+  const removeFromCart = (foodName) => {
     setItems((prevItems) => {
-      const newItems = prevItems.filter((item) => item.id !== id);
+      const newItems = prevItems.filter((item) => item.foodName !== foodName);
       saveCart(newItems);
       dispatch(decreaseCounter());
       return newItems;
     });
   };
 
-  const plusFoodHandler = (id) => {
+  const plusFoodHandler = (foodName) => {
     setItems((prevItems) => {
       const newItems = prevItems.map((item) =>
-        item.id === id
+        item.foodName === foodName
           ? {
               ...item,
               quantity: item.quantity + 1,
@@ -42,12 +53,17 @@ const FoodCart = () => {
       saveCart(newItems);
       return newItems;
     });
+
+    setQuantity((prevQuantity) => prevQuantity + 1);
+    setTotalPrice(
+      (prevTotalPrice) => prevTotalPrice + selectedFoodReservation.foodPrice
+    );
   };
 
-  const minusFoodHandler = (id) => {
+  const minusFoodHandler = (foodName) => {
     setItems((prevItems) => {
       const newItem = prevItems.map((item) =>
-        item.id === id
+        item.foodName === foodName
           ? {
               ...item,
               quantity: item.quantity > 1 ? item.quantity - 1 : 1,
@@ -62,11 +78,22 @@ const FoodCart = () => {
       saveCart(newItem);
       return newItem;
     });
+
+    setQuantity((prevQuantity) =>
+      prevQuantity > selectedFoodReservation.quantity
+        ? prevQuantity - 1
+        : selectedFoodReservation.quantity
+    );
+    setTotalPrice((prevTotalPrice) =>
+      prevTotalPrice > selectedFoodReservation.totalPrice
+        ? prevTotalPrice - selectedFoodReservation.totalPrice
+        : selectedFoodReservation.totalPrice
+    );
   };
 
   const submitFoodReservationHandler = (event) => {
     event.preventDefault();
-    window.alert("رزرو غذای شما با موفقیت انجام شد");
+    window.alert("سفارش غذای شما با موفقیت انجام شد");
     const items = JSON.parse(window.localStorage.getItem("cartItems") || []);
     items.forEach((item) => {
       addFoodReservation(item);
@@ -76,11 +103,74 @@ const FoodCart = () => {
     dispatch(resetCounter());
   };
 
+  const submitEditFoodReservationHandler = (event) => {
+    event.preventDefault();
+    editFoodReservation({
+      id: selectedFoodReservation.id,
+      quantity,
+      totalPrice,
+    });
+    window.alert("تغییرات با موفقیت ذخیره شد");
+    navigate("/booking-tracking");
+  };
+
   return (
     <React.Fragment>
       <NavbarMenu />
-      {items.length === 0 ? (
-        <h3 className="error-title">غذایی رزرو نشده است!</h3>
+      {selectedFoodReservation && (
+        <div className="food-reservation">
+          <table>
+            <thead>
+              <tr>
+                <th>نام غذا</th>
+                <th>وعده</th>
+                <th>قیمت واحد</th>
+                <th>تعداد</th>
+                <th>عملیات</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{selectedFoodReservation.foodName}</td>
+                <td>{selectedFoodReservation.foodCategory}</td>
+                <td>
+                  {selectedFoodReservation.foodPrice.toLocaleString("fa-IR")}
+                  تومان
+                </td>
+                <td>{quantity}</td>
+                <td>
+                  <div className="quantity-control">
+                    <i
+                      className="fas fa-plus"
+                      onClick={() =>
+                        plusFoodHandler(selectedFoodReservation.foodName)
+                      }
+                    ></i>
+                    <i
+                      className="fas fa-minus"
+                      onClick={() =>
+                        minusFoodHandler(selectedFoodReservation.foodName)
+                      }
+                    ></i>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div className="total-price">
+            <h3>
+              جمع کل:
+              {totalPrice.toLocaleString("fa-IR")}
+              تومان
+            </h3>
+            <form onSubmit={(event) => submitEditFoodReservationHandler(event)}>
+              <button type="submit">ذخیره تغییرات</button>
+            </form>
+          </div>
+        </div>
+      )}
+      {items.length === 0 && !selectedFoodReservation ? (
+        <h3 className="error-title">هنوز غذایی سفارش داده نشده است!</h3>
       ) : (
         <div className="cart-box">
           <h2>لیست غذای های رزرو اولیه</h2>
@@ -110,19 +200,19 @@ const FoodCart = () => {
                     <div className="quantity-control">
                       <i
                         className="fas fa-plus"
-                        onClick={() => plusFoodHandler(item.id)}
+                        onClick={() => plusFoodHandler(item.foodName)}
                       ></i>
                       {item.quantity}
                       <i
                         className="fas fa-minus"
-                        onClick={() => minusFoodHandler(item.id)}
+                        onClick={() => minusFoodHandler(item.foodName)}
                       ></i>
                     </div>
                   </td>
                   <td>
                     <i
                       className="fas fa-trash"
-                      onClick={() => removeFromCart(item.id)}
+                      onClick={() => removeFromCart(item.foodName)}
                     />
                   </td>
                 </tr>

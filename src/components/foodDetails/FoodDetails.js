@@ -130,7 +130,7 @@ const FoodDetails = () => {
                 ></i>
               </div>
               <button type="button" onClick={reservedFood}>
-                رزرو غذا
+                سفارش غذا
               </button>
             </div>
           </div>

@@ -58,7 +58,7 @@ const NavbarMenu = () => {
             <li>
               <i className="fa-solid fa-bed"></i>
               <Link
-                to="/reservation"
+                to="/roomReservation"
                 style={sticky ? { "&:hover": { color: "#f9f9f9" } } : {}}
               >
                 رزرو

@@ -24,7 +24,7 @@ const RoomDetails = () => {
         "لطفا برای رزرو اتاق ابتدا از تب ورود/ثبت نام وارد حساب کاربری شوید."
       );
     } else {
-      navigate("/reservation");
+      navigate("/roomReservation/newReservation");
     }
   };
 

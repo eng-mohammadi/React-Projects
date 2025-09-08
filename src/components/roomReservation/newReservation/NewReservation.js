@@ -1,16 +1,13 @@
 import React from "react";
-import NavbarMenu from "../navbarMenu/NavbarMenu";
-import Footer from "../footer/Footer";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import { reservationValidate } from "../../utils/validation";
-import { useAddRoomReservationMutation } from "../../redux/services/roomReservationApi";
+import { reservationValidate } from "../../../utils/validation";
+import { useAddRoomReservationMutation } from "../../../redux/services/roomReservationApi";
 
-const Reservation = () => {
+const NewReservation = () => {
   const [addRoomReservation] = useAddRoomReservationMutation();
+
   return (
     <React.Fragment>
-      <NavbarMenu />
-      <hr />
       <div className="reservation-form">
         <fieldset>
           <legend>فرم رزرو</legend>
@@ -144,10 +141,10 @@ const Reservation = () => {
                       </td>
                       <td>
                         <Field as="select" name="roomType" id="roomType">
-                          <option value="select">انتخاب نوع اتاق</option>
-                          <option value="standard">استاندارد</option>
-                          <option value="deluxe">دلوکس</option>
-                          <option value="suite">سوئیت</option>
+                          <option value="select">نوع اتاق</option>
+                          <option value="single">یک تخته لوکس</option>
+                          <option value="double">دو تخته استاندارد</option>
+                          <option value="suite"> سوئیت خانوادگی</option>
                         </Field>
                       </td>
                       <td>
@@ -186,9 +183,8 @@ const Reservation = () => {
           </Formik>
         </fieldset>
       </div>
-      <Footer />
     </React.Fragment>
   );
 };
 
-export default Reservation;
+export default NewReservation;

@@ -48,11 +48,10 @@ const FoodCard = ({ foodName, foodImage, foodPrice, foodCategory, flag }) => {
         dispatch(constantCounter());
       } else {
         const newItem = {
-          id: cartItems.length + 1,
           foodName,
-          date: `${new Date().getFullYear()}/${
+          date: `${new Date().getFullYear()}-${
             new Date().getMonth() + 1
-          }/${new Date().getDate()}`,
+          }-${new Date().getDate()}`,
           hour: `${new Date().getHours()}:${new Date().getMinutes()}`,
           foodCategory,
           foodPrice,
@@ -115,7 +114,7 @@ const FoodCard = ({ foodName, foodImage, foodPrice, foodCategory, flag }) => {
             </CSSTransition>
           </div>
           <form onSubmit={reservedFoods}>
-            <button type="submit">رزرو غذا</button>
+            <button type="submit">سفارش غذا</button>
           </form>
         </div>
       </div>

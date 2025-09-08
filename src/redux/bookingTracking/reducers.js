@@ -51,11 +51,15 @@ export const bookingTrackingReducer = (
 
     case FILTER_FOODS_BY_DATE:
       const { filterFoodDate } = action.payload;
+      const normalize = (dateStr) => {
+        const [y, m, d] = dateStr.split("-");
+        return `${y}-${m.padStart(2, "0")}-${d.padStart(2, "0")}`;
+      };
 
       let filteredFoods = state.foods;
       if (filterFoodDate) {
         filteredFoods = filteredFoods.filter((food) =>
-          food.date.includes(filterFoodDate)
+          normalize(food.date).includes(filterFoodDate)
         );
       }
       return { ...state, filteredFoodsByDate: filteredFoods };

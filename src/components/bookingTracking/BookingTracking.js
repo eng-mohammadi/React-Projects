@@ -12,10 +12,20 @@ import {
   selectFilteredFoodsByDate,
   selectFilteredRoomsByDate,
 } from "../../redux/bookingTracking/selectors";
-import { useGetFoodReservationQuery } from "../../redux/services/foodReservationApi";
-import { useGetRoomReservationQuery } from "../../redux/services/roomReservationApi";
+import {
+  useGetFoodReservationQuery,
+  useDeleteFoodReservationMutation,
+} from "../../redux/services/foodReservationApi";
+import {
+  useGetRoomReservationQuery,
+  useDeleteRoomReservationMutation,
+} from "../../redux/services/roomReservationApi";
+import { useNavigate } from "react-router-dom";
 
-const BookingTracking = () => {
+const BookingTracking = ({
+  setSelectedRoomReservation,
+  setSelectedFoodReservation,
+}) => {
   const dispatch = useDispatch();
   const filteredRoomsByDate = useSelector((state) =>
     selectFilteredRoomsByDate(state || [])
@@ -25,24 +35,62 @@ const BookingTracking = () => {
   );
   const { data: roomReservation } = useGetRoomReservationQuery();
   const { data: foodReservation } = useGetFoodReservationQuery();
+  const [deleteFoodReservation] = useDeleteFoodReservationMutation();
+  const [deleteRoomReservation] = useDeleteRoomReservationMutation();
   const [foodReservationDate, setFoodReservationDate] = useState("");
   const [checkInDate, setCheckInDate] = useState("");
   const [checkOutDate, setCheckOutDate] = useState("");
 
   const [flag, setFlag] = useState(false);
+  const navigate = useNavigate();
 
-  const searchSubmitHandler = (event) => {
+  const searchRoomSubmitHandler = (event) => {
     event.preventDefault();
     dispatch(setRooms(roomReservation));
-    dispatch(setFoods(foodReservation));
     dispatch(
       filterRoomsByDate({
         checkInDate,
         checkOutDate,
       })
     );
+    setFlag(!flag);
+  };
+
+  const deleteRoomReservationHandler = (roomId) => {
+    deleteRoomReservation(roomId);
+    dispatch(setRooms(roomReservation.filter((room) => room.id !== roomId)));
+    dispatch(filterRoomsByDate({ checkInDate, checkOutDate }));
+    window.alert(
+      "اتاق رزرو شده در تاریخ " +
+        checkInDate +
+        " تا " +
+        checkOutDate +
+        " حذف شد."
+    );
+  };
+
+  const editRoomReservationHandler = (room) => {
+    navigate("/roomReservation/editReservation");
+    setSelectedRoomReservation(room);
+  };
+
+  const searchFoodSubmitHandler = (event) => {
+    event.preventDefault();
+    dispatch(setFoods(foodReservation));
     dispatch(filterFoodsByDate({ filterFoodDate: foodReservationDate }));
     setFlag(!flag);
+  };
+
+  const deleteFoodReservationHandler = (foodId, foodName) => {
+    deleteFoodReservation(foodId);
+    dispatch(setFoods(foodReservation.filter((food) => food.id !== foodId)));
+    dispatch(filterFoodsByDate({ foodReservationDate }));
+    window.alert("سفارش غذای " + foodName + " حذف شد.");
+  };
+
+  const editFoodReservationHandler = (food) => {
+    setSelectedFoodReservation(food);
+    navigate("/cart");
   };
 
   return (
@@ -53,7 +101,7 @@ const BookingTracking = () => {
         <h3>در این بخش می‌توانید رزروهای ثبت شده خود را پیگیری کنید.</h3>
         <fieldset>
           <legend>پیگیری رزرو</legend>
-          <form onSubmit={(event) => searchSubmitHandler(event)}>
+          <form onSubmit={(event) => searchRoomSubmitHandler(event)}>
             <div className="search-reservation">
               <h4>جستجوی اتاق رزرو شده</h4>
               <label htmlFor="room-reservation-checkIn">تاریخ ورود رزرو:</label>
@@ -75,15 +123,18 @@ const BookingTracking = () => {
                 onChange={(event) => setCheckOutDate(event.target.value)}
               />
             </div>
+            <div className="booking-tracking__button">
+              <button type="submit">جستجو</button>
+            </div>
+          </form>
+          <form onSubmit={(event) => searchFoodSubmitHandler(event)}>
             <div className="search-reservation">
-              <h4>جستجوی غذای رزرو شده</h4>
-              <label htmlFor="food-reservation-date">تاریخ رزرو:</label>
+              <h4>جستجوی غذای سفارش شده</h4>
+              <label htmlFor="food-reservation-date">تاریخ سفارش:</label>
               <input
                 type="date"
                 name="foodReservationDate"
                 id="food-reservation-date"
-                autoComplete="off"
-                placeholder="تاریخ رزرو غذا را وارد کنید"
                 value={foodReservationDate}
                 onChange={(event) => setFoodReservationDate(event.target.value)}
               />
@@ -107,6 +158,8 @@ const BookingTracking = () => {
                         <th>تاریخ خروج</th>
                         <th>تعداد میهمان</th>
                         <th>نوع اتاق</th>
+                        <th>حذف</th>
+                        <th>ویرایش</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -119,6 +172,26 @@ const BookingTracking = () => {
                           <td>{room.checkOut}</td>
                           <td>{room.guests}</td>
                           <td>{room.roomType}</td>
+                          <td>
+                            <button
+                              type="button"
+                              onClick={() =>
+                                deleteRoomReservationHandler(room.id)
+                              }
+                              className="delete-button"
+                            >
+                              حذف
+                            </button>
+                          </td>
+                          <td>
+                            <button
+                              type="button"
+                              className="edit-button"
+                              onClick={() => editRoomReservationHandler(room)}
+                            >
+                              ویرایش
+                            </button>
+                          </td>
                         </tr>
                       ))}
                     </tbody>
@@ -132,6 +205,8 @@ const BookingTracking = () => {
                         <th>تاریخ رزرو</th>
                         <th>وعده</th>
                         <th>تعداد</th>
+                        <th>حذف</th>
+                        <th>ویرایش</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -141,6 +216,29 @@ const BookingTracking = () => {
                           <td>{food.date}</td>
                           <td>{food.foodCategory}</td>
                           <td>{food.quantity}</td>
+                          <td>
+                            <button
+                              type="button"
+                              onClick={() =>
+                                deleteFoodReservationHandler(
+                                  food.id,
+                                  food.foodName
+                                )
+                              }
+                              className="delete-button"
+                            >
+                              حذف
+                            </button>
+                          </td>
+                          <td>
+                            <button
+                              type="button"
+                              className="edit-button"
+                              onClick={() => editFoodReservationHandler(food)}
+                            >
+                              ویرایش
+                            </button>
+                          </td>
                         </tr>
                       ))}
                     </tbody>

@@ -4,12 +4,13 @@ import { setRooms } from "../../redux/rooms/actions";
 import { setFoods } from "../../redux/foods/actions";
 import axios from "axios";
 import NavbarMenu from "../navbarMenu/NavbarMenu";
-import SliderBox from "./sliderBox/SliderBox";
+import SliderBox from "../sliderBox/SliderBox";
 import RoomCards from "./roomCards/RoomCards";
 import FoodCards from "./foodCards/FoodCards";
 import Footer from "../footer/Footer";
 import SearchRoomsBox from "./searchRoomsBox/SearchRoomsBox";
 import SearchFoodsBox from "./searchFoodsBox/SearchFoodsBox";
+import Advertisement from "../advertisement/Advertisement";
 
 const Home = () => {
   const [roomImages, setRoomImages] = useState([]);
@@ -40,7 +41,6 @@ const Home = () => {
   return (
     <React.Fragment>
       <NavbarMenu />
-
       <SliderBox
         title="اتاق ها"
         error={error}
@@ -72,15 +72,17 @@ const Home = () => {
         }
       />
       <hr />
-      <main role="main">
-        <SearchRoomsBox />
-        <hr />
-        <RoomCards />
-        <hr />
-        <SearchFoodsBox />
-        <hr />
-        <FoodCards flag={flag} setFlag={() => setFlag(!flag)} />
-      </main>
+      <SearchRoomsBox />
+      <div className="aside-main__container">
+        <Advertisement />
+        <main role="main">
+          <RoomCards />
+          <hr />
+          <SearchFoodsBox />
+          <hr />
+          <FoodCards flag={flag} setFlag={() => setFlag(!flag)} />
+        </main>
+      </div>
       <Footer />
     </React.Fragment>
   );

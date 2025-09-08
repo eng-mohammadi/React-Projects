@@ -16,6 +16,14 @@ export const roomReservationApi = createApi({
       }),
       invalidatesTags: ["RoomReservation"],
     }),
+    editRoomReservation: builder.mutation({
+      query: ({ id, ...updatedRoomReservation }) => ({
+        url: `roomReservation/${id}`,
+        method: "PATCH",
+        body: updatedRoomReservation,
+      }),
+      invalidatesTags: ["RoomReservation"],
+    }),
     deleteRoomReservation: builder.mutation({
       query: (id) => ({
         url: `roomReservation/${id}`,
@@ -29,5 +37,6 @@ export const roomReservationApi = createApi({
 export const {
   useGetRoomReservationQuery,
   useAddRoomReservationMutation,
+  useEditRoomReservationMutation,
   useDeleteRoomReservationMutation,
 } = roomReservationApi;
