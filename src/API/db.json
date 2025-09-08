@@ -229,6 +229,7 @@
     }
   ],
   "accounting": [
+<<<<<<< HEAD
     {
       "id": "c895",
       "email": "mjhi@gmail.com",
@@ -236,6 +237,9 @@
       "confirmPassword": "1425@Reza",
       "terms": true
     }
+=======
+
+>>>>>>> origin/reza-new
   ],
   "roomReservation": [
     {
